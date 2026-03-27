@@ -1,0 +1,502 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * globals.css
+ * ─────────────────────────────────────────────────────────────────
+ * CSS custom properties for the complete design system.
+ *
+ * Structure:
+ *   1. Primitive tokens     → :root
+ *   2. Semantic tokens      → :root (references primitives)
+ *   3. Typography variables → :root (Desktop) + @media overrides
+ *   4. Dark mode            → [data-theme="dark"]
+ * ─────────────────────────────────────────────────────────────────
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ================================================================
+   1. PRIMITIVE TOKENS
+   ================================================================ */
+:root {
+
+  /* --- Color: Blue --- */
+  --color-blue-50:  #f7f9fb;
+  --color-blue-100: #b0d9fa;
+  --color-blue-200: #8ac7f7;
+  --color-blue-300: #55adf4;
+  --color-blue-400: #349def;
+  --color-blue-500: #0185EE;
+  --text-primary-default: #0185EE;
+
+  --color-blue-600: #0179d9;
+  --color-blue-700: #015ea9;
+  --color-blue-800: #014983;
+  --color-blue-900: #003863;
+  --color-brand-blue: #007AFF; /* Exactly as seen in Figma and refined for consistency */
+
+
+  /* --- Color: Black (grey scale) --- */
+  --color-black-50:  #e8e8e9;
+  --color-black-100: #b6b6b9;
+  --color-black-200: #939398;
+  --color-black-300: #626268;
+  --color-black-400: #43434b;
+  --color-black-500: #14141e;
+  --color-black-600: #12121b;
+  --color-black-700: #0e0e15;
+  --color-black-800: #0b0b11;
+  --color-black-900: #08080d;
+
+  /* --- Color: Green --- */
+  --color-green-50:  #e8f9f3;
+  --color-green-100: #b7edd9;
+  --color-green-200: #94e5c6;
+  --color-green-300: #63d9ad;
+  --color-green-400: #45d29d;
+  --color-green-500: #16c784;
+  --color-green-600: #14b578;
+  --color-green-700: #108d5e;
+  --color-green-800: #0c6d49;
+  --color-green-900: #095437;
+
+  /* --- Color: Red --- */
+  --color-red-50:  #fef0f0;
+  --color-red-100: #fbd1d1;
+  --color-red-200: #f9baba;
+  --color-red-300: #f69b9d;
+  --color-red-400: #f48889;
+  --color-red-500: #f16a6c;
+  --color-red-600: #db606a;
+  --color-red-700: #ab4b4d;
+  --color-red-800: #853a3b;
+  --color-red-900: #652c2c;
+
+  /* --- Color: Orange --- */
+  --color-orange-50:  #fff5e6;
+  --color-orange-100: #ffdeb0;
+  --color-orange-200: #ffd08a;
+  --color-orange-300: #ffba54;
+  --color-orange-400: #ffad33;
+  --color-orange-500: #ff9800;
+  --color-orange-600: #e88a00;
+  --color-orange-700: #b56c00;
+  --color-orange-800: #8c5400;
+  --color-orange-900: #6b4000;
+
+  /* --- Color: Base --- */
+  --color-base-black: #1e1f20;
+  --color-base-white: #ffffff;
+  --color-overlay:    rgba(17, 17, 18, 0.60);
+
+  /* --- Spacing Scale (4px base) --- */
+  --scale-0:    0px;
+  --scale-1:    4px;
+  --scale-1-5:  6px;
+  --scale-2:    8px;
+  --scale-3:    12px;
+  --scale-4:    16px;
+  --scale-5:    20px;
+  --scale-6:    24px;
+  --scale-7:    32px;
+  --scale-8:    48px;
+  --scale-9:    64px;
+  --scale-10:   72px;
+  --scale-11:   96px;
+
+  /* --- Named Spacing --- */
+  --spacing-none: 0px;
+  --spacing-2:    2px;
+  --spacing-4:    4px;
+  --spacing-xs:   8px;
+  --spacing-sm:   12px;
+  --spacing-md:   16px;
+  --spacing-m:    20px;
+  --spacing-lg:   24px;
+  --spacing-xl:   32px;
+  --spacing-xxl:  40px;
+  --spacing-3xl:  48px;
+  --spacing-4xl:  64px;
+  --spacing-5xl:  80px;
+  --spacing-6xl: 120px;
+  --spacing-7xl: 100px;
+
+  /* --- Aliases (Figma Naming) --- */
+  --sm:           var(--spacing-sm);   /* 12px */
+  --lg:           var(--spacing-md);   /* 16px */
+  --full:         var(--radius-full);  /* 999px */
+  --Color-Base-White: var(--color-base-white); /* #FFFFFF */
+
+  /* --- Border Radius --- */
+  --radius-0:    0px;
+  --radius-1:    4px;
+  --radius-2:    6px;
+  --radius-3:    8px;
+  --radius-4:    12px;
+  --radius-5:    16px;
+  --radius-6:    20px;
+  --radius-7:    24px;
+  --radius-8:    36px;
+  --radius-9:    96px;
+
+  /* --- Border Widths --- */
+  --border-0: 1px;
+  --border-1: 1.5px;
+  --border-2: 2px;
+  --border-3: 2.5px;
+  --border-4: 3px;
+
+  /* --- Icon Sizes --- */
+  --icon-0: 12px;
+  --icon-1: 16px;
+  --icon-2: 20px;
+  --icon-3: 24px;
+  --icon-4: 32px;
+  --icon-5: 40px;
+
+  /* --- Depth (shadow primitives) --- */
+  --depth-0:    0px;
+  --depth-025:  1px;
+  --depth-100:  4px;
+
+  /* --- Font Weights --- */
+  --fw-thin:        100;
+  --fw-extralight:  200;
+  --fw-light:       300;
+  --fw-regular:     400;
+  --fw-medium:      500;
+  --fw-semibold:    600;
+  --fw-bold:        700;
+
+  /* --- Font Families --- */
+  --font-primary:   "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-secondary: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+
+/* ================================================================
+   2. SEMANTIC TOKENS
+   ================================================================ */
+:root {
+
+  /* --- Background --- */
+  --color-bg-primary:      var(--color-base-white);
+  --color-bg-secondary:    var(--color-black-50);
+  --color-bg-tertiary:     var(--color-black-100);
+  --color-bg-inverse:      var(--color-black-900);
+  --color-bg-overlay:      var(--color-overlay);
+  --color-bg-brand:        var(--color-blue-500);
+  --color-bg-brand-subtle: var(--color-blue-50);
+
+  /* --- Text --- */
+  --color-text-primary:   var(--color-black-500);
+  --color-text-secondary: var(--color-black-300);
+  --color-text-tertiary:  var(--color-black-200);
+  --color-text-disabled:  var(--color-black-100);
+  --color-text-inverse:   var(--color-base-white);
+  --color-text-brand:     var(--color-blue-500);
+  --color-text-on-brand:  var(--color-base-white);
+
+  /* --- Border --- */
+  --color-border-default: var(--color-black-100);
+  --color-border-strong:  var(--color-black-300);
+  --color-border-subtle:  var(--color-black-50);
+  --color-border-focus:   var(--color-blue-500);
+  --color-border-brand:   var(--color-blue-500);
+
+  /* --- Brand --- */
+  --color-brand-primary:  var(--color-brand-blue);
+
+  /* --- Interactive --- */
+  --color-interactive-primary:          var(--color-blue-500);
+  --color-interactive-primary-hover:    var(--color-blue-600);
+  --color-interactive-primary-pressed:  var(--color-blue-700);
+  --color-interactive-primary-disabled: var(--color-blue-100);
+  --color-interactive-primary-fg:       var(--color-base-white);
+
+  /* --- Status: Success --- */
+  --color-success-bg:     var(--color-green-50);
+  --color-success-border: var(--color-green-200);
+  --color-success-text:   var(--color-green-700);
+  --color-success-icon:   var(--color-green-500);
+  --color-success-solid:  var(--color-green-500);
+
+  /* --- Status: Warning --- */
+  --color-warning-bg:     var(--color-orange-50);
+  --color-warning-border: var(--color-orange-200);
+  --color-warning-text:   var(--color-orange-700);
+  --color-warning-icon:   var(--color-orange-500);
+  --color-warning-solid:  var(--color-orange-500);
+
+  /* --- Status: Error --- */
+  --color-error-bg:     var(--color-red-50);
+  --color-error-border: var(--color-red-200);
+  --color-error-text:   var(--color-red-700);
+  --color-error-icon:   var(--color-red-500);
+  --color-error-solid:  var(--color-red-500);
+
+  /* --- Status: Info --- */
+  --color-info-bg:     var(--color-blue-50);
+  --color-info-border: var(--color-blue-200);
+  --color-info-text:   var(--color-blue-700);
+  --color-info-icon:   var(--color-blue-500);
+  --color-info-solid:  var(--color-blue-500);
+
+  /* --- Shadows --- */
+  --shadow-100: 0 var(--depth-025) var(--depth-100) 0 rgba(0,0,0,0.08);
+  --shadow-200: 0 var(--depth-025) var(--depth-100) 0 rgba(0,0,0,0.12), 0 4px 16px 0 rgba(0,0,0,0.08);
+  --shadow-300: 0 8px 24px 0 rgba(0,0,0,0.12), 0 2px 8px 0 rgba(0,0,0,0.08);
+  --shadow-200-dark: 0 var(--depth-025) var(--depth-100) 0 rgba(255,255,255,0.05), 0 var(--depth-025) var(--depth-100) 0 rgba(255,255,255,0.10);
+
+  /* --- Button Tokens (from Figma variable defs) --- */
+  /* button/Primary → blue-500 */
+  --color-button-primary:   var(--color-blue-500);
+  /* button/secondary → black-50 (grey) */
+  --color-button-secondary: var(--color-black-50);
+
+  /* Label/Label-1 typography (Figma: 16px / 22px / -0.18px / semibold) */
+  --label-1-font-size:      16px;
+  --label-1-line-height:    22px;
+  --label-1-letter-spacing: -0.18px;
+  --label-1-font-weight:    600;
+
+  /* --- Semantic Radius --- */
+  --radius-none: var(--radius-0);
+  --radius-xs:   var(--radius-1);
+  --radius-sm:   var(--radius-2);
+  --radius-md:   var(--radius-3);
+  --radius-lg:   var(--radius-4);
+  --radius-xl:   var(--radius-5);
+  --radius-2xl:  var(--radius-6);
+  --radius-3xl:  var(--radius-7);
+  --radius-full: var(--radius-9);
+
+  /* --- Semantic Border Width --- */
+  --border-thin:    var(--border-0);
+  --border-default: var(--border-1);
+  --border-medium:  var(--border-2);
+  --border-thick:   var(--border-3);
+  --border-heavy:   var(--border-4);
+
+  /* --- Semantic Icon Sizes --- */
+  --icon-xxs: var(--icon-0);
+  --icon-xs:  var(--icon-1);
+  --icon-sm:  var(--icon-2);
+  --icon-md:  var(--icon-3);
+  --icon-lg:  var(--icon-4);
+  --icon-xl:  var(--icon-5);
+}
+
+
+/* ================================================================
+   3. TYPOGRAPHY VARIABLES (Desktop — Mode 1 / Responsive)
+   ================================================================ */
+:root {
+
+  /* Headings */
+  --font-headings-h1-text-size:     64px;
+  --font-headings-h1-line-height:   70.4px;
+  --font-headings-h1-letter-spacing: -1.6px;
+
+  --font-headings-h2-text-size:     48px;
+  --font-headings-h2-line-height:   52.8px;
+  --font-headings-h2-letter-spacing: -1.2px;
+
+  --font-headings-h3-text-size:     32px;
+  --font-headings-h3-line-height:   38.4px;
+  --font-headings-h3-letter-spacing: -0.8px;
+
+  --font-headings-h4-text-size-4:    24px;
+  --font-headings-h4-line-height-3:  32px;
+  --font-headings-h4-letter-spacing: -0.6px;
+
+  --font-headings-h5-text-size:      20px;
+  --font-headings-h5-line-height:    28px;
+  --font-headings-h5-paragraph-spacing: -0.5px;
+
+  /* Body: lg */
+  --font-body-body-lg-text-size:     20px;
+  --font-body-body-lg-line-height:   28px;
+  --font-body-body-lg-letter-spacing: -0.5px;
+
+  /* Body: md */
+  --font-body-body-md-text-size:     18px;
+  --font-body-body-md-line-height:   26px;
+  --font-body-body-md-letter-spacing: -0.45px;
+
+  /* Body: sm */
+  --font-body-body-sm-text-size:     16px;
+  --font-body-body-sm-line-height:   26px;
+  --font-body-body-sm-letter-spacing: -0.4px;
+
+  /* Body: Label */
+  --font-body-label-text-size:     14px;
+  --font-body-label-line-height:   20px;
+  --font-body-label-letter-spacing: -0.35px;
+
+  /* Body: Small */
+  --font-body-small-text-size:     12px;
+  --font-body-small-line-height:   16px;
+  --font-body-small-letter-spacing: 0.24px;
+
+  /* Body: XS */
+  --font-body-xs-text-size:      10px;
+  --font-body-xs-paragraph-spacing: 14px;
+  --font-body-xs-line-height:    14px;
+}
+
+/* --- Tablet (≤ 1024px) — Responsive overrides --- */
+@media (max-width: 1024px) {
+  :root {
+    --font-headings-h1-text-size:     48px;
+    --font-headings-h1-line-height:   52.8px;
+    --font-headings-h1-letter-spacing: -1.0px;
+
+    --font-headings-h2-text-size:     40px;
+    --font-headings-h2-line-height:   46px;
+    --font-headings-h2-letter-spacing: -0.8px;
+
+    --font-headings-h3-text-size:     30px;
+    --font-headings-h3-line-height:   36px;
+    --font-headings-h3-letter-spacing: -0.6px;
+
+    --font-headings-h4-text-size-4:    22px;
+    --font-headings-h4-line-height-3:  28px;
+    --font-headings-h4-letter-spacing: -0.4px;
+
+    --font-headings-h5-text-size:      18px;
+    --font-headings-h5-line-height:    26px;
+    --font-headings-h5-paragraph-spacing: -0.3px;
+
+    --font-body-body-lg-text-size:     18px;
+    --font-body-body-lg-line-height:   28px;
+
+    --font-body-body-md-text-size:     16px;
+    --font-body-body-md-line-height:   24px;
+    --font-body-body-md-letter-spacing: -0.4px;
+  }
+}
+
+/* --- Mobile (≤ 768px) --- */
+@media (max-width: 768px) {
+  :root {
+    --font-headings-h1-text-size:     36px;
+    --font-headings-h1-line-height:   42px;
+    --font-headings-h1-letter-spacing: -0.8px;
+
+    --font-headings-h2-text-size:     30px;
+    --font-headings-h2-line-height:   36px;
+    --font-headings-h2-letter-spacing: -0.6px;
+
+    --font-headings-h3-text-size:     24px;
+    --font-headings-h3-line-height:   30px;
+    --font-headings-h3-letter-spacing: -0.4px;
+
+    --font-headings-h4-text-size-4:    20px;
+    --font-headings-h4-line-height-3:  26px;
+    --font-headings-h4-letter-spacing: -0.3px;
+
+    --font-headings-h5-text-size:      18px;
+    --font-headings-h5-line-height:    24px;
+    --font-headings-h5-paragraph-spacing: -0.2px;
+
+    --font-body-body-lg-text-size:    16px;
+    --font-body-body-md-text-size:    16px;
+
+    --spacing-6xl: 80px;
+    --spacing-5xl: 64px;
+  }
+}
+
+
+/* ================================================================
+   4. DARK MODE
+   ================================================================ */
+[data-theme="dark"] {
+
+  /* Background */
+  --color-bg-primary:      var(--color-black-900);
+  --color-bg-secondary:    var(--color-black-800);
+  --color-bg-tertiary:     var(--color-black-700);
+  --color-bg-inverse:      var(--color-base-white);
+  --color-bg-brand:        var(--color-blue-400);
+  --color-bg-brand-subtle: var(--color-blue-900);
+
+  /* Text */
+  --color-text-primary:   var(--color-base-white);
+  --color-text-secondary: var(--color-black-300);
+  --color-text-tertiary:  var(--color-black-200);
+  --color-text-disabled:  var(--color-black-100);
+  --color-text-inverse:   var(--color-black-900);
+  --color-text-brand:     var(--color-blue-300);
+
+  /* Border */
+  --color-border-default: var(--color-black-600);
+  --color-border-strong:  var(--color-black-400);
+  --color-border-subtle:  var(--color-black-700);
+  --color-border-focus:   var(--color-blue-400);
+  --color-border-brand:   var(--color-blue-400);
+
+  /* Interactive */
+  --color-interactive-primary:          var(--color-blue-400);
+  --color-interactive-primary-hover:    var(--color-blue-300);
+  --color-interactive-primary-pressed:  var(--color-blue-200);
+
+  /* Shadows (lighter for dark surfaces) */
+  --shadow-100: var(--shadow-200-dark);
+  --shadow-200: var(--shadow-200-dark);
+}
+
+
+/* ================================================================
+   5. BASE RESET
+   ================================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-body-body-md-text-size, 18px);
+  line-height: var(--font-body-body-md-line-height, 26px);
+  letter-spacing: var(--font-body-body-md-letter-spacing, -0.45px);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}

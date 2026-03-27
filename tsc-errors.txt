@@ -1,0 +1,6 @@
+app/page.tsx(5,8): error TS1192: Module '"G:/Website test/components/our-vision"' has no default export.
+components/our-vision.tsx(1,34): error TS2307: Cannot find module '@/components/layout' or its corresponding type declarations.
+components/our-vision.tsx(2,22): error TS2307: Cannot find module '@/components/typography' or its corresponding type declarations.
+components/our-vision.tsx(3,24): error TS2307: Cannot find module '@/theme/colors' or its corresponding type declarations.
+components/our-vision.tsx(4,25): error TS2307: Cannot find module '@/theme/spacing' or its corresponding type declarations.
+components/our-vision.tsx(6,27): error TS2307: Cannot find module './ValueCard' or its corresponding type declarations.

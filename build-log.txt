@@ -1,0 +1,19 @@
+  Γû▓ Next.js 14.2.35
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+Failed to compile.
+
+./app/about/page.tsx:55:29
+Type error: Type '{ title: string; content: string; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'title' does not exist on type 'IntrinsicAttributes'.
+
+  53 |                     <div className="bg-[#F8FAFC] rounded-3xl p-8 md:p-12 border border-border-subtle">
+  54 |                         <StrategicStatement 
+> 55 |                             title="Our Strategic Mission"
+     |                             ^
+  56 |                             content="To provide every individual and institution with a secure gateway to the future of finance, without compromising on transparency or speed."
+  57 |                         />
+  58 |                     </div>
+Next.js build worker exited with code: 1 and signal: null
