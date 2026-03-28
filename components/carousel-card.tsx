@@ -24,6 +24,7 @@ export const CarouselCard: React.FC<CarouselCardProps> = ({
         src={imageSrc}
         alt="TrustCore Lifestyle and technology usage scene"
         fill
+        unoptimized
         className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         sizes="(max-width: 768px) 280px, (max-width: 1024px) 320px, 400px"
       />
