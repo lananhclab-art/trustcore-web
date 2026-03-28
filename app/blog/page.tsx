@@ -187,7 +187,7 @@ export default function BlogPage() {
                     <Text variant="heading-h3" as="h3" color="primary" className="group-hover:text-[#007AFF] transition-all leading-tight">
                       {displayFeatured.title}
                     </Text>
-                    <Text variant="body-lg" color="secondary" className="line-clamp-3">
+                    <Text variant="body-lg" color="secondary">
                       {displayFeatured.description}
                     </Text>
                   </div>
@@ -225,7 +225,7 @@ export default function BlogPage() {
                           <Text variant="heading-h4" as="h4" color="primary" className="group-hover:text-[#007AFF] transition-all line-clamp-2">
                             {post.title}
                           </Text>
-                          <Text variant="body-md" color="secondary" className="line-clamp-2 opacity-80">
+                          <Text variant="body-md" color="secondary" className="opacity-80">
                             {post.description}
                           </Text>
                         </div>
