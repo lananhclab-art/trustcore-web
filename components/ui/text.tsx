@@ -15,6 +15,13 @@
 
 import React from "react";
 import { cn } from "../../lib/cn";
+import { 
+  getTypographyStyle, 
+  typographyHeading, 
+  typographyBody, 
+  type BodyVariant,
+  type WeightVariant 
+} from "../../lib/typography";
 
 // ─── Variant Map ──────────────────────────────────────────────────
 
@@ -104,11 +111,25 @@ export const Text = React.forwardRef<HTMLElement, TextProps>(
   ) => {
     const Tag = (as ?? defaultTags[variant]) as React.ElementType;
 
+    // Get explicit styles from the typography system
+    let styleObj: React.CSSProperties = {};
+    
+    if (variant.startsWith("heading-")) {
+      const level = variant.split("-")[1] as "h1" | "h2" | "h3" | "h4" | "h5";
+      // Ensure h1 and h2 both use the primary H1 style as requested
+      const targetLevel = (level === "h2") ? "h1" : level;
+      styleObj = getTypographyStyle(typographyHeading[targetLevel]);
+    } else if (variant.startsWith("body-")) {
+      const bodyVariant = variant.split("-")[1] as BodyVariant;
+      const weightKey = (weight === "bold" ? "semibold" : (weight || "regular")) as WeightVariant;
+      styleObj = getTypographyStyle(typographyBody[bodyVariant][weightKey]);
+    }
+
     return (
       <Tag
         ref={ref}
+        style={{ ...styleObj, ...props.style }}
         className={cn(
-          "font-primary",
           variantClasses[variant],
           weight ? weightClasses[weight] : undefined,
           colorClasses[color],
@@ -124,5 +145,20 @@ export const Text = React.forwardRef<HTMLElement, TextProps>(
 );
 
 Text.displayName = "Text";
+
+export const H1 = React.forwardRef<HTMLElement, TextProps>((props, ref) => (
+  <Text {...props} variant="heading-h1" ref={ref} />
+));
+H1.displayName = "H1";
+
+export const H2 = React.forwardRef<HTMLElement, TextProps>((props, ref) => (
+  <Text {...props} variant="heading-h1" ref={ref} />
+));
+H2.displayName = "H2";
+
+export const H3 = React.forwardRef<HTMLElement, TextProps>((props, ref) => (
+  <Text {...props} variant="heading-h3" ref={ref} />
+));
+H3.displayName = "H3";
 
 export default Text;

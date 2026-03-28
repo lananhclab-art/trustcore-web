@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/cn';
+import { Text } from './ui/text';
 import { Button } from './ui/button';
 
 interface FeatureCardProps {
@@ -38,9 +39,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
     <div
       className={cn(
         'relative rounded-3xl overflow-hidden flex flex-col border transition-all duration-500 ease-out group',
-        // Hover State: Deep shadow + uplift
         'hover:shadow-lg hover:-translate-y-1',
-        // Variant Styles
         variant === 'white' && 'bg-white border-border-default hover:border-text-brand/20',
         variant === 'dark'  && 'bg-bg-inverse text-white border-transparent',
         variant === 'image' && 'bg-bg-inverse text-white border-transparent',
@@ -56,8 +55,8 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
             alt={imageAlt}
             fill
             className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1240px) 50vw, 400px"
           />
-          {/* Subtle Dark Gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         </>
       )}
@@ -66,29 +65,28 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
       <div className="relative z-10 flex flex-col h-full p-10 md:p-12">
         {/* Top block */}
         <div className="flex-none">
-          <h3
-            className={cn(
-              'font-bold leading-tight mb-3 tracking-[-0.5px]',
-              isFullWidth ? 'text-[28px] md:text-[36px]' : 'text-[20px] md:text-[24px]',
-            )}
+          <Text
+            variant={isFullWidth ? "heading-h3" : "heading-h5"}
+            as="h3"
+            color={isDark ? "inverse" : "primary"}
+            className="mb-sm"
           >
             {title}
-          </h3>
-          <p
-            className={cn(
-              'text-[15px] md:text-[16px] leading-relaxed max-w-[380px]',
-              isDark ? 'text-white/70' : 'text-[#64748B]',
-            )}
+          </Text>
+
+          <Text
+            variant="body-sm"
+            color={isDark ? "inverse" : "secondary"}
+            className={cn("max-w-[380px]", isDark && "opacity-70")}
           >
             {description}
-          </p>
+          </Text>
 
-          {/* Button if not pinned at bottom */}
           {buttonText && !buttonAtBottom && (
-            <div className="mt-8">
-              <Button 
-                variant={buttonVariant} 
-                size="md" 
+            <div className="mt-xl">
+              <Button
+                variant={buttonVariant}
+                size="md"
                 className="rounded-full px-7"
               >
                 {buttonText}
@@ -98,16 +96,16 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
         </div>
 
         {/* Middle: Graphics / Children */}
-        <div className="flex-1 relative w-full min-h-[40px] mt-4">
+        <div className="flex-1 relative w-full min-h-[40px] mt-md">
           {children}
         </div>
 
         {/* Button if pinned at bottom */}
         {buttonText && buttonAtBottom && (
-          <div className="flex-none mt-auto pt-8">
-            <Button 
-              variant={buttonVariant} 
-              size="md" 
+          <div className="flex-none mt-auto pt-xl">
+            <Button
+              variant={buttonVariant}
+              size="md"
               className="rounded-full px-7"
             >
               {buttonText}

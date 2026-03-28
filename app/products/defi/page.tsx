@@ -5,64 +5,75 @@ import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { Section } from "@/components/ui/section";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Text } from "@/components/ui/text";
+import Image from "next/image";
 
 export default function DeFiPlatformPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans overflow-x-hidden">
       <Header onDark={false} />
 
-      <main className="flex-grow pt-[100px] lg:pt-[140px]">
+      <main className="flex-grow">
 
         {/* --- Hero Section --- */}
-        <section className="relative pb-[100px] lg:pb-[140px] overflow-hidden">
+        <Section spacing="hero" bg="white" className="relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[400px] bg-[#00D2FF]/10 blur-[120px] rounded-full -z-10" />
-          <Container size="wide">
+          <Container >
             <div className="flex flex-col items-center text-center gap-12">
               <div className="flex flex-col gap-6 max-w-[1000px]">
-                <h1 className="text-[48px] md:text-[64px] lg:text-[72px] font-bold leading-[1.1] tracking-tight text-[#14141E]">
+                <Text as="div" variant="heading-h1" weight="bold" color="primary" className="leading-[1.05] tracking-[-1.5px]">
                   Earn, Borrow, and <br className="hidden md:block" />
-                  <span className="text-[#0185EE]">Manage Assets Seamlessly</span>
-                </h1>
-                <p className="text-[20px] font-medium leading-[28px] tracking-[-0.5px] text-[#626268] max-w-[800px] mx-auto">
+                  <span className="text-text-brand">Manage Assets Seamlessly</span>
+                </Text>
+                <Text variant="body-lg" weight="medium" color="secondary" className="leading-[30px] max-w-[800px] mx-auto">
                   Access decentralized lending and liquidity through a secure, transparent, and <br className="hidden md:block" />
                   efficient on-chain system built for the next generation of finance.
-                </p>
+                </Text>
               </div>
               <div className="relative w-full mt-12 overflow-hidden">
                 <div className="relative aspect-[16/10] w-full">
-                  <img
-                    src="/images/products/defi/dashboard.avif"
+                  <Image
+                    src="/images/defi/dashboard.avif"
                     alt="DeFi Platform Dashboard Visualization"
-                    className="w-full h-full object-contain"
+                    fill
+                    priority
+                    unoptimized
+                    className="object-contain"
+                    sizes="(max-width: 1280px) 100vw, 1280px"
                   />
                 </div>
               </div>
             </div>
           </Container>
-        </section>
+        </Section>
 
         {/* --- Assets Management Section --- */}
-        <section className="pb-[100px] lg:pb-[140px]">
-          <Container size="wide">
+        <Section spacing="lg" bg="white">
+          <Container >
             <div className="relative overflow-hidden rounded-[40px] bg-[#0D0F12] min-h-[600px] flex items-center group">
               <div className="absolute inset-0 z-10">
-                <img
-                  src="/images/products/defi/assets.avif"
+                <Image
+                  src="/images/defi/assets.avif"
                   alt="Assets management visualization"
-                  className="w-full h-full object-cover object-center opacity-70 group-hover:scale-105 transition-transform duration-1000"
+                  fill
+                  unoptimized
+                  className="object-cover object-center opacity-70 group-hover:scale-105 transition-transform duration-1000"
+                  sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0D0F12] via-[#0D0F12]/80 to-transparent z-20" />
               </div>
               <div className="relative z-30 px-8 py-16 md:px-16 md:py-20 flex flex-col gap-16 w-full">
                 <div className="flex flex-col gap-6 max-w-[600px]">
-                  <h2 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-tight text-white">
+              <Text as="div" variant="heading-h2" weight="bold" color="inverse" className="leading-[1.1] tracking-tight">
                     Your Assets, <br />
                     Put To Work
-                  </h2>
-                  <p className="text-[20px] font-medium leading-[28px] tracking-[-0.5px] text-white">
+                  </Text>
+                  <Text variant="body-lg" weight="medium" color="inverse" className="leading-[28px]">
                     Supply assets, access liquidity, and optimize <br className="hidden md:block" />
                     your positions. All within a single platform.
-                  </p>
+                  </Text>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
                   <CapabilityItem title="Earn" description="Supply assets to generate yield based on real-time market demand." />
@@ -73,26 +84,24 @@ export default function DeFiPlatformPage() {
               </div>
             </div>
           </Container>
-        </section>
+        </Section>
 
         {/* --- Simple Flows / Outcomes Section --- */}
-        <section className="pb-[100px] lg:pb-[140px]">
-          <Container size="wide">
+        <Section spacing="lg" bg="white">
+          <Container >
             <div className="flex flex-col items-center text-center gap-12">
-              <div className="flex flex-col gap-6">
-                <h2 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-tight text-[#14141E]">
-                  Simple Flows, <br className="hidden md:block" />
-                  <span className="text-[#0185EE]">Powerful Outcomes</span>
-                </h2>
-                <p className="text-[20px] font-medium leading-[28px] tracking-[-0.5px] text-[#626268] max-w-[600px] mx-auto">
-                  A streamlined process designed to make decentralized lending accessible and efficient.
-                </p>
-              </div>
+              <SectionHeader
+                title={<>Simple Flows, <br className="hidden md:block" /><span className="text-[#007AFF]">Powerful Outcomes</span></>}
+                subtitle="A streamlined process designed to make decentralized lending accessible and efficient."
+              />
               <div className="w-full aspect-[16/9] relative overflow-hidden rounded-[40px]">
-                <img
-                  src="/images/products/defi/outcome.avif"
+                <Image
+                  src="/images/defi/outcome.avif"
                   alt="Process outcome visualization"
-                  className="w-full h-full object-cover"
+                  fill
+                  unoptimized
+                  className="object-cover"
+                  sizes="(max-width: 1280px) 100vw, 1280px"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 w-full text-left">
@@ -102,27 +111,25 @@ export default function DeFiPlatformPage() {
               </div>
             </div>
           </Container>
-        </section>
+        </Section>
 
         {/* --- Opportunities Section --- */}
-        <section className="pb-[100px] lg:pb-[140px]">
-          <Container size="wide">
+        <Section spacing="lg" bg="white">
+          <Container >
             <div className="flex flex-col items-center text-center gap-12">
-              <div className="flex flex-col gap-6">
-                <h2 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-tight text-[#14141E]">
-                  Access Diverse Lending <br className="hidden md:block" />
-                  <span className="text-[#0185EE]">Opportunities</span>
-                </h2>
-                <p className="text-[20px] font-medium leading-[28px] tracking-[-0.5px] text-[#626268] max-w-[800px] mx-auto">
-                  Participate across multiple assets and markets within a unified system.
-                </p>
-              </div>
+              <SectionHeader
+                title={<>Access Diverse Lending <br className="hidden md:block" /><span className="text-[#007AFF]">Opportunities</span></>}
+                subtitle="Participate across multiple assets and markets within a unified system."
+              />
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full text-left">
-                <div className="relative aspect-square md:aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-[40px]">
-                  <img
-                    src="/images/products/defi/hand.avif"
+                <div className="relative aspect-square md:aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-[40px] bg-[#F8FAFC] border border-[#E8EDF2]">
+                  <Image
+                    src="/images/defi/hand.avif"
                     alt="Lending opportunities visualization"
-                    className="w-full h-full object-cover"
+                    fill
+                    unoptimized
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 540px"
                   />
                 </div>
                 <div className="flex flex-col gap-6">
@@ -134,21 +141,16 @@ export default function DeFiPlatformPage() {
               </div>
             </div>
           </Container>
-        </section>
+        </Section>
 
         {/* --- Core Security Section --- */}
-        <section className="pb-[100px] lg:pb-[140px]">
-          <Container size="wide">
+        <Section spacing="lg" bg="white">
+          <Container >
             <div className="flex flex-col items-center text-center gap-12">
-              <div className="flex flex-col gap-6">
-                <h2 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-tight text-[#14141E]">
-                  Security at <br className="hidden md:block" />
-                  <span className="text-[#0185EE]">The Core</span>
-                </h2>
-                <p className="text-[20px] font-medium leading-[28px] tracking-[-0.5px] text-[#626268] max-w-[600px] mx-auto">
-                  Protocol-level protections ensure transparency, reliability, and user confidence.
-                </p>
-              </div>
+              <SectionHeader
+                title={<>Security at <br className="hidden md:block" /><span className="text-[#007AFF]">The Core</span></>}
+                subtitle="Protocol-level protections ensure transparency, reliability, and user confidence."
+              />
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full text-left">
                 <div className="flex flex-col gap-6">
                   <OpportunityItem text="Smart contract-based execution" />
@@ -156,34 +158,37 @@ export default function DeFiPlatformPage() {
                   <OpportunityItem text="Continuous monitoring and risk controls" />
                   <OpportunityItem text="Designed for auditability & resilience" />
                 </div>
-                <div className="relative aspect-square md:aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-[40px]">
-                  <img
-                    src="/images/products/defi/core.avif"
+                <div className="relative aspect-square md:aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-[40px] bg-[#F8FAFC] border border-[#E8EDF2]">
+                  <Image
+                    src="/images/defi/core.avif"
                     alt="Core security and monitoring visualization"
-                    className="w-full h-full object-cover"
+                    fill
+                    unoptimized
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 540px"
                   />
                 </div>
               </div>
             </div>
           </Container>
-        </section>
+        </Section>
 
-        {/* --- CTA Section --- */}
-        <section className="relative bg-[#08080D] py-[100px] lg:py-[160px] overflow-hidden">
-          <Container size="wide">
-            <div className="relative z-10 flex flex-col items-center text-center gap-10 md:gap-14">
-              <h1 className="text-[40px] md:text-[60px] lg:text-[72px] font-bold leading-[1.1] tracking-tight text-white max-w-[1200px]">
-                Navigate financial innovation <br className="hidden md:block" />
-                with confidence
-              </h1>
+        {/* --- Final CTA Section --- */}
+        <Section spacing="lg" bg="dark" className="relative overflow-hidden">
+          <Container>
+            <div className="text-center max-w-4xl mx-auto space-y-12">
+              <Text as="div" variant="heading-h1" weight="bold" color="inverse">
+                Unlock the Full Potential <br className="hidden md:block" />
+                of Your Assets
+              </Text>
               <div className="flex justify-center">
-                <Button variant="primary" size="nav">
-                  Contact Us
+                <Button variant="primary" size="nav" className="font-bold">
+                  Launch App
                 </Button>
               </div>
             </div>
           </Container>
-        </section>
+        </Section>
 
       </main>
 
@@ -194,15 +199,13 @@ export default function DeFiPlatformPage() {
 
 function OpportunityItem({ text }: { text: string }) {
   return (
-    <div className="flex items-center gap-3">
-      <div className="w-6 h-6 rounded-full bg-[#0185EE] flex items-center justify-center text-white flex-shrink-0">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="20 6 9 17 4 12"></polyline>
+    <div className="flex items-center gap-6">
+      <div className="w-6 h-6 flex-shrink-0 bg-[#007AFF] rounded-full flex items-center justify-center">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </div>
-      <span className="text-[18px] md:text-[20px] font-medium text-[#14141E] leading-tight">
-        {text}
-      </span>
+      <Text variant="heading-h5" as="h5" color="primary" className="tracking-tight">{text}</Text>
     </div>
   );
 }
@@ -210,12 +213,12 @@ function OpportunityItem({ text }: { text: string }) {
 function StepItem({ number, title, description }: { number: string; title: string; description: string }) {
   return (
     <div className="flex flex-col gap-6">
-      <div className="w-10 h-10 bg-[#14141E] rounded-[8px] flex items-center justify-center text-white text-[18px] font-bold">
+      <div className="w-12 h-12 bg-[#14141E] rounded-[12px] flex items-center justify-center text-white text-[20px] font-bold">
         {number}
       </div>
       <div className="flex flex-col gap-3">
-        <h3 className="text-[20px] font-bold text-[#14141E] tracking-tight">{title}</h3>
-        <p className="text-[16px] leading-[24px] text-[#626268]">{description}</p>
+        <Text variant="heading-h4" as="h4" color="primary" className="tracking-tight">{title}</Text>
+        <Text variant="body-lg" weight="medium" color="secondary" className="leading-[24px]">{description}</Text>
       </div>
     </div>
   );
@@ -224,8 +227,8 @@ function StepItem({ number, title, description }: { number: string; title: strin
 function CapabilityItem({ title, description }: { title: string; description: string }) {
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="text-[20px] font-bold text-white tracking-tight">{title}</h3>
-      <p className="text-[18px] font-normal leading-[26px] tracking-[-0.45px] text-white">{description}</p>
+      <Text variant="heading-h4" as="h4" color="inverse" className="tracking-tight">{title}</Text>
+      <Text variant="body-md" weight="regular" color="inverse" className="leading-[26px] tracking-[-0.45px]">{description}</Text>
     </div>
   );
 }

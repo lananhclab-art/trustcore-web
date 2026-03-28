@@ -1,39 +1,52 @@
 import React from "react";
 import Image from "next/image";
+import { Section } from "./ui/section";
 import { Container } from "./ui/container";
+import { Text } from "./ui/text";
 import { Button } from "./ui/button";
 
 export const JoinTeam: React.FC = () => {
   return (
-    <section className="bg-white py-5xl lg:py-6xl">
-      <Container size="wide">
-        <div className="relative w-full h-[400px] lg:h-auto lg:aspect-[21/9] lg:min-h-[500px] overflow-hidden rounded-[24px]">
-          {/* Background Image */}
+    <Section spacing="lg" bg="white">
+      <Container>
+        <div className="relative w-full h-[474px] md:min-h-[500px] lg:aspect-[21/9] overflow-hidden rounded-[24px] bg-black">
           <Image
             src="/images/about/work.avif"
             alt="TrustCore team members collaborating"
             fill
             className="object-cover"
+            sizes="(max-width: 1240px) 100vw, 1240px"
           />
-          
-          {/* Precise Gradient Overlay for Text Readability */}
-          <div 
-            className="absolute inset-0 z-10" 
-            style={{ background: 'linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.7) 100%)' }}
+
+          <div
+            className="absolute inset-0 z-10"
+            style={{
+              background:
+                "linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.7) 100%)",
+            }}
           />
-          
-          {/* Content Layer */}
-          <div className="absolute inset-0 z-20 flex flex-col justify-center px-8 lg:px-20 text-white">
-            <div className="max-w-[500px] flex flex-col gap-6 lg:gap-8">
-              <h2 className="text-[40px] lg:text-[64px] font-bold leading-[1.1] tracking-tight">
-                Work At <br />
+
+          <div className="absolute inset-0 z-20 flex flex-col justify-center px-[20px] md:px-[48px] text-white">
+            <div className="max-w-xl space-y-6">
+              <Text
+                variant="heading-h1"
+                as="h1"
+                color="inverse"
+                className="whitespace-pre-line"
+              >
+                Work At {"\n"}
                 TrustCore
-              </h2>
-              <p className="text-body-lg font-medium text-white/90">
+              </Text>
+              <Text
+                variant="body-lg"
+                weight="medium"
+                color="inverse"
+                className="opacity-90 max-w-full leading-[28px]"
+              >
                 Join a team that is building the future of finance together.
-              </p>
-              <div>
-                <Button variant="primary" size="lg">
+              </Text>
+              <div className="pt-4 flex justify-center md:justify-start">
+                <Button variant="primary" size="nav" className="font-bold">
                   View Open Roles
                 </Button>
               </div>
@@ -41,7 +54,7 @@ export const JoinTeam: React.FC = () => {
           </div>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 

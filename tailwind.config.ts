@@ -196,10 +196,10 @@ const config: Config = {
           },
         ],
         "heading-h2": [
-          "var(--font-headings-h2-text-size, 48px)",
+          "var(--font-headings-h1-text-size, 64px)",
           {
-            lineHeight:    "var(--font-headings-h2-line-height, 52.8px)",
-            letterSpacing: "var(--font-headings-h2-letter-spacing, -1.2px)",
+            lineHeight:    "var(--font-headings-h1-line-height, 70.4px)",
+            letterSpacing: "var(--font-headings-h1-letter-spacing, -1.6px)",
             fontWeight:    "700",
           },
         ],
@@ -229,14 +229,14 @@ const config: Config = {
         ],
         // Body
         "body-lg": [
-          "var(--font-body-body-lg-text-size, 20px)",
+          "var(--Font-Body-body-lg-text-size, 20px)",
           {
             lineHeight:    "var(--font-body-body-lg-line-height, 28px)",
             letterSpacing: "var(--font-body-body-lg-letter-spacing, -0.5px)",
           },
         ],
         "body-md": [
-          "var(--font-body-body-md-text-size, 18px)",
+          "var(--Font-Body-body-md-text-size, 18px)",
           {
             lineHeight:    "var(--font-body-body-md-line-height, 26px)",
             letterSpacing: "var(--font-body-body-md-letter-spacing, -0.45px)",

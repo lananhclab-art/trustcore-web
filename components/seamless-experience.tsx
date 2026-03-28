@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { Container } from './ui/container';
+import { Section } from './ui/section';
+import { SectionHeader } from './ui/section-header';
 
 const STATS = [
   { value: "$2.4B+", label: "Total Assets Protected" },
@@ -79,17 +81,12 @@ const FEATURES = [
 
 export const SeamlessExperience = () => {
   return (
-    <section className="w-full bg-white py-[100px] lg:py-[140px]">
-      <Container size="wide">
-        {/* Section Header */}
-        <div className="text-center mb-[72px] lg:mb-[96px]">
-          <h2 className="text-[40px] leading-[44px] md:text-[52px] md:leading-[56px] lg:text-[60px] lg:leading-[64px] font-bold text-[#0F172A] tracking-[-1.5px]">
-            A Seamless <span className="text-[#0066FF]">Experience</span>
-          </h2>
-          <p className="mt-5 text-body-lg font-medium text-text-secondary max-w-[560px] mx-auto">
-            TrustCore unifies every layer of financial infrastructure into one seamless, enterprise-grade platform.
-          </p>
-        </div>
+    <Section spacing="lg" bg="white">
+      <Container >
+        <SectionHeader
+          title={<>A Seamless <span className="text-[#007AFF]">Experience</span></>}
+          subtitle="TrustCore unifies every layer of financial infrastructure into one seamless, enterprise-grade platform."
+        />
 
         {/* Stats Row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-[80px] lg:mb-[112px]">
@@ -128,7 +125,7 @@ export const SeamlessExperience = () => {
           ))}
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Container } from "@/components/ui/container";
+import { Text } from "@/components/ui/text";
 
 const sections = [
   {
@@ -124,32 +125,32 @@ export default function AccessibilityPage() {
       <main className="flex-grow pt-[100px] lg:pt-[140px]">
         {/* Page Header */}
         <section className="py-[60px] lg:py-[80px] border-b border-[#E8ECF0]">
-          <Container size="wide">
+          <Container >
             <div className="flex flex-col gap-4">
-              <h1 className="text-[44px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-[-1.5px] text-[#14141E]">
+              <Text as="div" variant="heading-h1" weight="bold" color="primary" className="leading-[1.1] tracking-[-1.5px]">
                 Accessibility Statement
-              </h1>
-              <p className="text-[16px] text-[#626268] mt-2">
+              </Text>
+              <Text variant="body-md" color="secondary" className="mt-2">
                 Version 1.0 (Published: 26 March 2026) &nbsp;·&nbsp; Last Updated: 26 March 2026
-              </p>
+              </Text>
             </div>
           </Container>
         </section>
 
         {/* Content */}
         <section className="py-[80px] lg:py-[100px]">
-          <Container size="wide">
+          <Container >
             <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 lg:gap-20 items-start">
               {/* Sticky Table of Contents */}
               <nav className="hidden lg:flex flex-col gap-2 sticky top-[110px]">
-                <p className="text-[13px] font-bold text-[#626268] tracking-[1px] uppercase mb-2">
+                <p className="text-body-md font-bold text-[#626268] tracking-[1px] uppercase mb-2">
                   Contents
                 </p>
                 {sections.map((s) => (
                   <a
                     key={s.id}
                     href={`#${s.id}`}
-                    className="text-[14px] text-[#626268] hover:text-[#0185EE] transition-colors py-1 leading-snug"
+                    className="text-body-md text-[#626268] hover:text-[#0185EE] transition-colors py-1 leading-snug"
                   >
                     {s.title}
                   </a>
@@ -164,10 +165,10 @@ export default function AccessibilityPage() {
                     id={section.id}
                     className="flex flex-col gap-4 scroll-mt-[120px]"
                   >
-                    <h2 className="text-[24px] font-bold text-[#14141E] leading-[32px] tracking-[-0.6px]">
+                    <Text as="div" variant="heading-h3" weight="bold" color="primary" className="leading-[32px] tracking-[-0.6px]">
                       {section.title}
-                    </h2>
-                    <div className="text-[17px] font-normal text-[#626268] leading-[28px] whitespace-pre-line">
+                    </Text>
+                    <div className="text-body-lg font-normal text-[#626268] leading-[28px] whitespace-pre-line">
                       {section.content.split("\n").map((para: string, i: number) => {
                         if (para.startsWith("**") && para.endsWith("**")) {
                           return (

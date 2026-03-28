@@ -1,7 +1,12 @@
+"use client";
+
 import React from "react";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Text } from "@/components/ui/text";
 
 const sections = [
   {
@@ -226,35 +231,32 @@ export default function TermsOfUsePage() {
     <div className="min-h-screen bg-white flex flex-col font-sans overflow-x-hidden">
       <Header onDark={false} />
 
-      <main className="flex-grow pt-[100px] lg:pt-[140px]">
+      <main className="flex-grow">
         {/* Page Header */}
-        <section className="py-[60px] lg:py-[80px] border-b border-[#E8ECF0]">
-          <Container size="wide">
-            <div className="flex flex-col gap-4">
-              <h1 className="text-[44px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-[-1.5px] text-[#14141E]">
-                Terms of Use
-              </h1>
-              <p className="text-[16px] text-[#626268] mt-2">
-                Effective Date: March 25, 2026 &nbsp;·&nbsp; Last Updated: March 26, 2026
-              </p>
-            </div>
+        <Section spacing="hero" bg="white" className="border-b border-[#E8EDF2]">
+          <Container >
+            <SectionHeader
+              title="Terms of Use"
+              subtitle="Effective Date: March 25, 2026 · Last Updated: March 26, 2026"
+              align="left"
+            />
           </Container>
-        </section>
+        </Section>
 
         {/* Content */}
-        <section className="py-[80px] lg:py-[100px]">
-          <Container size="wide">
-            <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 lg:gap-20 items-start">
+        <Section spacing="lg" bg="white">
+          <Container >
+            <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-24 items-start">
               {/* Sticky Table of Contents */}
-              <nav className="hidden lg:flex flex-col gap-2 sticky top-[110px]">
-                <p className="text-[13px] font-bold text-[#626268] tracking-[1px] uppercase mb-2">
-                  Contents
+              <nav className="hidden lg:flex flex-col gap-3 sticky top-[120px] p-8 bg-[#F8FAFC] rounded-3xl border border-[#E8EDF2]">
+                <p className="text-[12px] font-bold text-[#94A3B8] tracking-[1.5px] uppercase mb-4 px-2">
+                  Table of Contents
                 </p>
                 {sections.map((s) => (
                   <a
                     key={s.id}
                     href={`#${s.id}`}
-                    className="text-[14px] text-[#626268] hover:text-[#0185EE] transition-colors py-1 leading-snug"
+                    className="text-[14px] font-semibold text-[#626268] hover:text-[#007AFF] hover:translate-x-1 transition-all py-1.5 px-2 rounded-lg hover:bg-white"
                   >
                     {s.title}
                   </a>
@@ -262,41 +264,42 @@ export default function TermsOfUsePage() {
               </nav>
 
               {/* Policy Content */}
-              <div className="flex flex-col gap-12">
+              <div className="flex flex-col gap-16">
                 {sections.map((section: any) => (
                   <div
                     key={section.id}
                     id={section.id}
-                    className="flex flex-col gap-4 scroll-mt-[120px]"
+                    className="flex flex-col gap-6 scroll-mt-[140px]"
                   >
-                    <h2 className="text-[24px] font-bold text-[#14141E] leading-[32px] tracking-[-0.6px]">
+                    <Text as="div" variant="heading-h3" weight="bold" color="primary" className="leading-tight tracking-tight">
                       {section.title}
-                    </h2>
-                    <div className="text-[17px] font-normal text-[#626268] leading-[28px] whitespace-pre-line">
+                    </Text>
+                    <div className="text-body-lg font-medium text-[#626268] leading-[30px] whitespace-pre-line">
                       {section.content.split("\n").map((para: string, i: number) => {
                         if (para.startsWith("**") && para.endsWith("**")) {
                           return (
-                            <p key={i} className="font-bold text-[#14141E] mt-4 mb-1">
+                            <p key={i} className="font-bold text-[#0F172A] mt-6 mb-2">
                               {para.replace(/\*\*/g, "")}
                             </p>
                           );
                         }
                         if (para.startsWith("• ")) {
                           return (
-                            <p key={i} className="flex gap-2 mt-1">
-                              <span className="text-[#626268] flex-shrink-0">•</span>
+                            <p key={i} className="flex gap-3 mt-2 pl-2">
+                              <span className="text-[#007AFF] font-bold flex-shrink-0">•</span>
                               <span>{para.slice(2)}</span>
                             </p>
                           );
                         }
-                        if (para.trim() === "") return <div key={i} className="h-2" />;
-                        // Handle inline bold (including handling of **Sub-section Title**)
+                        if (para.trim() === "") return <div key={i} className="h-4" />;
+                        
+                        // Handle inline bold
                         const parts = para.split(/(\*\*[^*]+\*\*)/g);
                         return (
-                          <p key={i} className="mt-1">
+                          <p key={i} className="mt-2 text-[#626268]">
                             {parts.map((part, j) =>
                               part.startsWith("**") && part.endsWith("**") ? (
-                                <strong key={j} className="font-bold text-[#14141E]">
+                                <strong key={j} className="font-bold text-[#0F172A]">
                                   {part.replace(/\*\*/g, "")}
                                 </strong>
                               ) : (
@@ -307,13 +310,12 @@ export default function TermsOfUsePage() {
                         );
                       })}
                     </div>
-                    <div className="border-b border-[#E8ECF0] mt-4" />
                   </div>
                 ))}
               </div>
             </div>
           </Container>
-        </section>
+        </Section>
       </main>
 
       <Footer hideCTA={true} />

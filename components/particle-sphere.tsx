@@ -93,7 +93,7 @@ const ParticleSphere = () => {
     let logoCount = 0;
 
     const createBtcLogo = () => {
-      const img = new Image();
+      const img = new window.Image();
       img.src = "/images/future/bitcoin.svg";
 
       img.onload = () => {

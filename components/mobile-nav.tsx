@@ -13,31 +13,31 @@ const productsItems = [
   {
     title: "TrustCore Wallet",
     description: "Manage secure multi-chain digital assets",
-    icon: <Wallet className="text-[#000000]" size={20} />,
-    href: "/products/wallet"
+    icon: <Wallet className="text-[#000000]" size={20} strokeWidth={2.5} />,
+    href: "https://trustcore.finance/"
   },
   {
     title: "TrustCore Exchange",
     description: "Unified liquidity and high-performance trading",
-    icon: <Database className="text-[#000000]" size={20} />,
+    icon: <Database className="text-[#000000]" size={20} strokeWidth={2.5} />,
     href: "/products/exchange"
   },
   {
     title: "Fintech Advisory",
     description: "Guide blockchain strategy and financial innovation",
-    icon: <Headset className="text-[#000000]" size={20} />,
+    icon: <Headset className="text-[#000000]" size={20} strokeWidth={2.5} />,
     href: "/products/advisory"
   },
   {
     title: "TrustCore Payment Gateway",
     description: "Enable global payments with digital assets",
-    icon: <CreditCard className="text-[#000000]" size={20} />,
+    icon: <CreditCard className="text-[#000000]" size={20} strokeWidth={2.5} />,
     href: "/products/gateway"
   },
   {
     title: "DeFi Platform",
     description: "Explore decentralized finance and yield opportunities",
-    icon: <Share2 className="text-[#000000]" size={20} />,
+    icon: <Share2 className="text-[#000000]" size={20} strokeWidth={2.5} />,
     href: "/products/defi"
   }
 ];
@@ -46,19 +46,19 @@ const companyItems = [
   {
     title: "About Us",
     description: "Meet the team behind TrustCore",
-    icon: <Building2 className="text-[#000000]" size={20} />,
+    icon: <Building2 className="text-[#000000]" size={20} strokeWidth={2.5} />,
     href: "/about"
   },
   {
     title: "Press Kit",
     description: "Download brand assets and media resources",
-    icon: <FileText className="text-[#000000]" size={20} />,
+    icon: <FileText className="text-[#000000]" size={20} strokeWidth={2.5} />,
     href: "/company/press"
   },
   {
     title: "Careers",
     description: "Join us in building the future of finance",
-    icon: <Briefcase className="text-[#000000]" size={20} />,
+    icon: <Briefcase className="text-[#000000]" size={20} strokeWidth={2.5} />,
     href: "/company/careers"
   }
 ];
@@ -115,7 +115,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-[#F8FAFC] transition-colors"
             aria-label="Close menu"
           >
-            <X size={22} className="text-[#0F172A]" />
+            <X size={22} strokeWidth={2.5} className="text-[#0F172A]" />
           </button>
         </div>
 
@@ -133,6 +133,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
               </span>
               <ChevronDown 
                 size={20} 
+                strokeWidth={2.5}
                 className={`transition-transform duration-300 ${expandedSection === "products" ? "rotate-180 text-[#0185EE]" : "text-[#94A3B8]"}`} 
               />
             </button>
@@ -154,6 +155,8 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
                         key={item.title} 
                         href={item.href}
                         onClick={onClose}
+                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                         className="group flex items-start gap-4 p-2 -m-2 rounded-[12px] transition-all duration-200"
                       >
                         <div className="w-[40px] h-[40px] flex-shrink-0 flex items-center justify-center rounded-[10px] bg-[#F3F4F6] group-hover:bg-[#E8F1FF] border border-transparent transition-all duration-200">

@@ -2,7 +2,9 @@
 
 import React from "react";
 import { Container } from "./ui/container";
+import { Section } from "./ui/section";
 import { Button } from "./ui/button";
+import { Text } from "./ui/text";
 
 interface JobRole {
   title: string;
@@ -11,23 +13,23 @@ interface JobRole {
 }
 
 const JobRow: React.FC<JobRole> = ({ title, type, location }) => (
-  <div className="flex flex-col md:flex-row md:items-center justify-between min-h-[70px] py-5 md:py-0 border-b border-[#E8E8E9] group hover:bg-slate-50/50 transition-colors">
+  <div className="flex flex-col md:flex-row md:items-center justify-between min-h-[70px] py-6 md:py-0 border-b border-border-subtle group hover:bg-slate-50/50 transition-all duration-300">
     <div className="mb-4 md:mb-0">
-      <h3 className="text-[18px] font-semibold text-[#0F172A]">
+      <Text variant="heading-h5" as="h4" color="primary" weight="bold">
         {title}
-      </h3>
+      </Text>
     </div>
     <div className="flex items-center justify-between md:justify-end gap-[24px] md:gap-[40px] lg:gap-[160px]">
       <div className="flex items-center gap-[24px] md:gap-[40px] lg:gap-[120px]">
-        <span className="text-[14px] md:text-[16px] leading-[22px] tracking-[-0.18px] text-[#626268] font-semibold">
+        <Text variant="body-md" weight="semibold" color="secondary">
           {type}
-        </span>
-        <span className="text-[14px] md:text-[16px] leading-[22px] tracking-[-0.18px] text-[#626268] font-semibold">
+        </Text>
+        <Text variant="body-md" weight="semibold" color="secondary">
           {location}
-        </span>
+        </Text>
       </div>
       <button 
-        className="flex shrink-0 items-center justify-center w-[70px] h-[32px] rounded-full bg-[#E8E8E9] text-[#0F172A] text-[14px] font-semibold hover:bg-[#0185EE] hover:text-white transition-colors"
+        className="flex shrink-0 items-center justify-center px-lg h-[32px] rounded-full bg-slate-100 text-text-primary text-[14px] font-bold hover:bg-text-brand hover:text-white transition-all duration-300"
       >
         Apply
       </button>
@@ -37,38 +39,37 @@ const JobRow: React.FC<JobRole> = ({ title, type, location }) => (
 
 export const OpenRoles: React.FC = () => {
   const engineeringJobs = [
-    { title: "Frontend Developer", type: "Full Time", location: "Dallas" },
-    { title: "Backend Developer", type: "Full Time", location: "Dallas" },
-    { title: "Blockchain Developer", type: "Full Time", location: "Dallas" },
-    { title: "Mobile Developer", type: "Full Time", location: "Dallas" },
+    { title: "Frontend Developer", type: "Full Time", location: "CA, USA" },
+    { title: "Backend Developer", type: "Full Time", location: "CA, USA" },
+    { title: "Blockchain Developer", type: "Full Time", location: "CA, USA" },
+    { title: "Mobile Developer", type: "Full Time", location: "CA, USA" },
   ];
 
   const productJobs = [
-    { title: "IT Business Analyst (BA)", type: "Full Time", location: "Dallas" },
-    { title: "QA / Tester", type: "Full Time", location: "Dallas" },
-    { title: "Marketing Executive", type: "Full Time", location: "Dallas" },
+    { title: "IT Business Analyst (BA)", type: "Full Time", location: "CA, USA" },
+    { title: "QA / Tester", type: "Full Time", location: "CA, USA" },
+    { title: "Marketing Executive", type: "Full Time", location: "CA, USA" },
   ];
 
   return (
-    <section className="bg-white py-[100px] md:py-[140px]">
-      <Container size="wide">
-        {/* Header */}
-        <div className="text-center mb-[60px] md:mb-[80px]">
-          <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-[-0.02em] text-[#0F172A]">
-            Join our <span className="text-[#0185EE]">Team</span>
-          </h1>
-          <p className="mt-[24px] text-[20px] font-medium text-[#626268] leading-[28px] tracking-[-0.5px] max-w-[720px] mx-auto">
-            A place for talented and highly motivated individuals. Find where you can make an impact.
-          </p>
+    <Section spacing="lg" bg="white">
+      <Container>
+        <div className="flex flex-col items-center text-center mb-16 lg:mb-24">
+          <Text variant="heading-h1" as="h2" color="primary">
+            Join our <span className="text-text-brand">Team</span>
+          </Text>
+          <Text variant="body-md" weight="medium" color="secondary" className="mt-6 max-w-2xl">
+            All current openings are listed here. If you encounter roles elsewhere, please verify and apply through our official listings.
+          </Text>
         </div>
 
         {/* Roles List */}
-        <div className="flex flex-col gap-[48px]">
+        <div className="flex flex-col gap-[64px] lg:gap-[80px]">
           {/* Engineering */}
           <div>
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[#0F172A] mb-[16px]">
+            <Text variant="heading-h2" as="h3" color="primary" weight="bold" className="mb-[24px] tracking-tight">
               Engineering
-            </h2>
+            </Text>
             <div className="flex flex-col">
               {engineeringJobs.map((job, idx) => (
                 <JobRow key={idx} {...job} />
@@ -78,9 +79,9 @@ export const OpenRoles: React.FC = () => {
 
           {/* Product & Business */}
           <div>
-            <h2 className="text-[24px] md:text-[32px] font-bold text-[#0F172A] mb-[16px]">
+            <Text variant="heading-h2" as="h3" color="primary" weight="bold" className="mb-[24px] tracking-tight">
               Product & Business
-            </h2>
+            </Text>
             <div className="flex flex-col">
               {productJobs.map((job, idx) => (
                 <JobRow key={idx} {...job} />
@@ -90,17 +91,17 @@ export const OpenRoles: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-[80px] flex justify-center">
+        <div className="mt-4xl lg:mt-6xl flex justify-center">
           <Button 
             variant="primary" 
             size="nav" 
-            className="px-[24px] bg-[#0185EE] hover:bg-[#0175DB] transition-colors rounded-full"
+            className="font-bold overflow-hidden"
           >
             Browse all positions available
           </Button>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Container } from "@/components/ui/container";
+import { Text } from "@/components/ui/text";
 
 const sections = [
   {
@@ -103,21 +104,21 @@ export default function CookiePolicyPage() {
       <main className="flex-grow pt-[100px] lg:pt-[140px]">
         {/* Page Header */}
         <section className="py-[60px] lg:py-[80px] border-b border-[#E8ECF0]">
-          <Container size="wide">
+          <Container >
             <div className="flex flex-col gap-4">
-              <h1 className="text-[44px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-[-1.5px] text-[#14141E]">
+              <Text as="div" variant="heading-h1" weight="bold" color="primary" className="leading-[1.1] tracking-[-1.5px]">
                 Cookie Policy
-              </h1>
-              <p className="text-[16px] text-[#626268] mt-2">
+              </Text>
+              <Text variant="body-md" color="secondary" className="mt-2">
                 Last Updated: 26 March 2026
-              </p>
-              <p className="text-[18px] text-[#626268] mt-4 max-w-[800px] leading-relaxed">
-                This Cookie Policy explains how TrustCore Technologies, LLC (“TrustCore,” “we,” “us,” or “our”) uses cookies and similar technologies in connection with its website located at https://trustcore.finance/ and any associated subdomains, applications, products, and services (collectively, the “Services”).
-              </p>
-              <p className="text-[18px] text-[#626268] mt-2 max-w-[800px] leading-relaxed">
+              </Text>
+              <Text variant="body-lg" color="secondary" className="mt-4 max-w-[800px] leading-relaxed">
+                This Cookie Policy explains how TrustCore Technologies, LLC ("TrustCore," "we," "us," or "our") uses cookies and similar technologies in connection with its website located at https://trustcore.finance/ and any associated subdomains, applications, products, and services (collectively, the "Services").
+              </Text>
+              <Text variant="body-lg" color="secondary" className="mt-2 max-w-[800px] leading-relaxed">
                 We are committed to transparency regarding the technologies we use. This Policy provides information about how and why cookies are used, as well as the choices available to you in managing these technologies.
-              </p>
-              <p className="text-[18px] text-[#626268] mt-2 max-w-[800px] leading-relaxed">
+              </Text>
+              <p className="body-lg text-[#626268] mt-2 max-w-[800px] leading-relaxed">
                 This Cookie Policy should be read together with our <a href="/legal/privacy" className="text-[#0185EE] hover:underline underline-offset-4">Privacy Policy</a>, which explains how we process personal data.
               </p>
             </div>
@@ -126,7 +127,7 @@ export default function CookiePolicyPage() {
 
         {/* Content */}
         <section className="py-[80px] lg:py-[100px]">
-          <Container size="wide">
+          <Container >
             <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 lg:gap-20 items-start">
               {/* Sticky Table of Contents */}
               <nav className="hidden lg:flex flex-col gap-2 sticky top-[110px]">
@@ -152,10 +153,10 @@ export default function CookiePolicyPage() {
                     id={section.id}
                     className="flex flex-col gap-4 scroll-mt-[120px]"
                   >
-                    <h2 className="text-[24px] font-bold text-[#14141E] leading-[32px] tracking-[-0.6px]">
+                    <Text as="div" variant="heading-h3" weight="bold" color="primary" className="leading-[32px] tracking-[-0.6px]">
                       {section.title}
-                    </h2>
-                    <div className="text-[17px] font-normal text-[#626268] leading-[28px] whitespace-pre-line">
+                    </Text>
+                    <div className="text-body-lg font-normal text-[#626268] leading-[28px] whitespace-pre-line">
                       {section.content.split("\n").map((para: string, i: number) => {
                         if (para.trim() === "") return <div key={i} className="h-2" />;
                         

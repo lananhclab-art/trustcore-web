@@ -291,122 +291,199 @@
 
 
 /* ================================================================
-   3. TYPOGRAPHY VARIABLES (Desktop — Mode 1 / Responsive)
+   3. TYPOGRAPHY VARIABLES (Desktop — from responsive.css ":root")
    ================================================================ */
 :root {
 
+  /* Margin (from responsive.css) */
+  --margin-margin: 100px;
+
   /* Headings */
-  --font-headings-h1-text-size:     64px;
-  --font-headings-h1-line-height:   70.4px;
-  --font-headings-h1-letter-spacing: -1.6px;
+  --font-headings-h1-text-size:       64px;
+  --font-headings-h1-line-height:     70.4px;
+  --font-headings-h1-letter-spacing:  -1.6px;
 
-  --font-headings-h2-text-size:     48px;
-  --font-headings-h2-line-height:   52.8px;
-  --font-headings-h2-letter-spacing: -1.2px;
+  --font-headings-h2-text-size:       48px;
+  --font-headings-h2-line-height:     52.8px;
+  --font-headings-h2-letter-spacing:  -1.2px;
 
-  --font-headings-h3-text-size:     32px;
-  --font-headings-h3-line-height:   38.4px;
-  --font-headings-h3-letter-spacing: -0.8px;
+  --font-headings-h3-text-size:       32px;
+  --font-headings-h3-line-height:     38.4px;
+  --font-headings-h3-letter-spacing:  -0.8px;
 
-  --font-headings-h4-text-size-4:    24px;
-  --font-headings-h4-line-height-3:  32px;
-  --font-headings-h4-letter-spacing: -0.6px;
+  --font-headings-h4-text-size-4:     24px;
+  --font-headings-h4-line-height-3:   32px;
+  --font-headings-h4-letter-spacing:  -0.6px;
 
-  --font-headings-h5-text-size:      20px;
-  --font-headings-h5-line-height:    28px;
+  --font-headings-h5-text-size:       20px;
+  --font-headings-h5-line-height:     28px;
   --font-headings-h5-paragraph-spacing: -0.5px;
 
-  /* Body: lg */
-  --font-body-body-lg-text-size:     20px;
-  --font-body-body-lg-line-height:   28px;
+  /* Body */
+  --Font-Body-body-lg-text-size:      20px;
+  --font-body-body-lg-line-height:    28px;
   --font-body-body-lg-letter-spacing: -0.5px;
 
-  /* Body: md */
-  --font-body-body-md-text-size:     18px;
-  --font-body-body-md-line-height:   26px;
+  --Font-Body-body-md-text-size:      18px;
+  --font-body-body-md-line-height:    26px;
   --font-body-body-md-letter-spacing: -0.45px;
 
-  /* Body: sm */
-  --font-body-body-sm-text-size:     16px;
-  --font-body-body-sm-line-height:   26px;
+  --font-body-body-sm-text-size:      16px;
+  --font-body-body-sm-line-height:    26px;
   --font-body-body-sm-letter-spacing: -0.4px;
 
-  /* Body: Label */
-  --font-body-label-text-size:     14px;
-  --font-body-label-line-height:   20px;
-  --font-body-label-letter-spacing: -0.35px;
+  --font-body-label-text-size:        14px;
+  --font-body-label-line-height:      20px;
+  --font-body-label-letter-spacing:   -0.35px;
 
-  /* Body: Small */
-  --font-body-small-text-size:     12px;
-  --font-body-small-line-height:   16px;
-  --font-body-small-letter-spacing: 0.24px;
+  --font-body-small-text-size:        12px;
+  --font-body-small-line-height:      16px;
+  --font-body-small-letter-spacing:   0.24px;
 
-  /* Body: XS */
-  --font-body-xs-text-size:      10px;
-  --font-body-xs-paragraph-spacing: 14px;
-  --font-body-xs-line-height:    14px;
+  --font-body-xs-text-size:           10px;
+  --font-body-xs-paragraph-spacing:   14px;
+  --font-body-xs-line-height:         14px;
+
+  /* Spacing (mirrors responsive.css desktop) */
+  --spacing-none:  0px;
+  --spacing-2:     2px;
+  --spacing-4:     4px;
+  --spacing-xs:    8px;
+  --spacing-sm:    12px;
+  --spacing-md:    16px;
+  --spacing-m:     20px;
+  --spacing-lg:    24px;
+  --spacing-xl:    32px;
+  --spacing-xxl:   40px;
+  --spacing-3xl:   48px;
+  --spacing-4xl:   64px;
+  --spacing-5xl:   80px;
+  --spacing-6xl:   120px;
+  --spacing-7xl:   100px;
+
+  /* Radius (mirrors responsive.css desktop) */
+  --radius-7:  24px;
+  --radius-8:  36px;
+  --radius-9:  96px;
 }
 
-/* --- Tablet (≤ 1024px) — Responsive overrides --- */
+/* ================================================================
+   Tablet (≤ 744px breakpoint — from responsive.css [data-theme='Tablet'])
+   ================================================================ */
 @media (max-width: 1024px) {
   :root {
-    --font-headings-h1-text-size:     48px;
-    --font-headings-h1-line-height:   52.8px;
-    --font-headings-h1-letter-spacing: -1.0px;
+    --margin-margin:  32px;
 
-    --font-headings-h2-text-size:     40px;
-    --font-headings-h2-line-height:   46px;
-    --font-headings-h2-letter-spacing: -0.8px;
+    --font-headings-h1-text-size:       48px;
+    --font-headings-h1-line-height:     56px;
+    --font-headings-h1-letter-spacing:  -1.2px;
 
-    --font-headings-h3-text-size:     30px;
-    --font-headings-h3-line-height:   36px;
-    --font-headings-h3-letter-spacing: -0.6px;
+    --font-headings-h2-text-size:       36px;
+    --font-headings-h2-line-height:     44px;
+    --font-headings-h2-letter-spacing:  -1px;
 
-    --font-headings-h4-text-size-4:    22px;
-    --font-headings-h4-line-height-3:  28px;
-    --font-headings-h4-letter-spacing: -0.4px;
+    --font-headings-h3-text-size:       28px;
+    --font-headings-h3-line-height:     36px;
+    --font-headings-h3-letter-spacing:  -0.6px;
 
-    --font-headings-h5-text-size:      18px;
-    --font-headings-h5-line-height:    26px;
+    --font-headings-h4-text-size-4:     22px;
+    --font-headings-h4-line-height-3:   28px;
+    --font-headings-h4-letter-spacing:  -0.4px;
+
+    --font-headings-h5-text-size:       18px;
+    --font-headings-h5-line-height:     26px;
     --font-headings-h5-paragraph-spacing: -0.3px;
 
-    --font-body-body-lg-text-size:     18px;
-    --font-body-body-lg-line-height:   28px;
+    --Font-Body-body-lg-text-size:      18px;
+    --font-body-body-lg-line-height:    28px;
+    --font-body-body-lg-letter-spacing: -0.5px;
 
-    --font-body-body-md-text-size:     16px;
-    --font-body-body-md-line-height:   24px;
+    --Font-Body-body-md-text-size:      16px;
+    --font-body-body-md-line-height:    24px;
     --font-body-body-md-letter-spacing: -0.4px;
+
+    --font-body-body-sm-text-size:      16px;
+    --font-body-body-sm-line-height:    26px;
+
+    --font-body-label-text-size:        14px;
+    --font-body-label-line-height:      22px;
+
+    --spacing-m:   16px;
+    --spacing-lg:  20px;
+    --spacing-xl:  24px;
+    --spacing-xxl: 32px;
+    --spacing-3xl: 40px;
+    --spacing-4xl: 48px;
+    --spacing-5xl: 64px;
+    --spacing-6xl: 80px;
+
+    --radius-5:  12px;
+    --radius-6:  16px;
+    --radius-7:  16px;
+    --radius-8:  24px;
+    --radius-9:  64px;
   }
 }
 
-/* --- Mobile (≤ 768px) --- */
+/* ================================================================
+   Mobile (≤ 375px breakpoint — from responsive.css [data-theme='Mobile'])
+   ================================================================ */
 @media (max-width: 768px) {
   :root {
-    --font-headings-h1-text-size:     36px;
-    --font-headings-h1-line-height:   42px;
-    --font-headings-h1-letter-spacing: -0.8px;
+    --margin-margin:  16px;
 
-    --font-headings-h2-text-size:     30px;
-    --font-headings-h2-line-height:   36px;
-    --font-headings-h2-letter-spacing: -0.6px;
+    --font-headings-h1-text-size:       38px;
+    --font-headings-h1-line-height:     48px;
+    --font-headings-h1-letter-spacing:  -1px;
 
-    --font-headings-h3-text-size:     24px;
-    --font-headings-h3-line-height:   30px;
-    --font-headings-h3-letter-spacing: -0.4px;
+    --font-headings-h2-text-size:       28px;
+    --font-headings-h2-line-height:     36px;
+    --font-headings-h2-letter-spacing:  -0.8px;
 
-    --font-headings-h4-text-size-4:    20px;
-    --font-headings-h4-line-height-3:  26px;
-    --font-headings-h4-letter-spacing: -0.3px;
+    --font-headings-h3-text-size:       24px;
+    --font-headings-h3-line-height:     32px;
+    --font-headings-h3-letter-spacing:  -0.5px;
 
-    --font-headings-h5-text-size:      18px;
-    --font-headings-h5-line-height:    24px;
-    --font-headings-h5-paragraph-spacing: -0.2px;
+    --font-headings-h4-text-size-4:     20px;
+    --font-headings-h4-line-height-3:   28px;
+    --font-headings-h4-letter-spacing:  -0.3px;
 
-    --font-body-body-lg-text-size:    16px;
-    --font-body-body-md-text-size:    16px;
+    --font-headings-h5-text-size:       16px;
+    --font-headings-h5-line-height:     24px;
+    --font-headings-h5-paragraph-spacing: -0.3px;
 
-    --spacing-6xl: 80px;
-    --spacing-5xl: 64px;
+    --Font-Body-body-lg-text-size:      16px;
+    --font-body-body-lg-line-height:    28px;
+    --font-body-body-lg-letter-spacing: -0.5px;
+
+    --Font-Body-body-md-text-size:      15px;
+    --font-body-body-md-line-height:    20px;
+    --font-body-body-md-letter-spacing: -0.35px;
+
+    --font-body-body-sm-text-size:      16px;
+    --font-body-body-sm-line-height:    26px;
+
+    --font-body-label-text-size:        14px;
+    --font-body-label-line-height:      22px;
+
+    --spacing-sm:  8px;
+    --spacing-md:  12px;
+    --spacing-m:   12px;
+    --spacing-lg:  16px;
+    --spacing-xl:  20px;
+    --spacing-xxl: 24px;
+    --spacing-3xl: 32px;
+    --spacing-4xl: 40px;
+    --spacing-5xl: 48px;
+    --spacing-6xl: 64px;
+
+    --radius-3:  6px;
+    --radius-4:  8px;
+    --radius-5:  8px;
+    --radius-6:  12px;
+    --radius-7:  12px;
+    --radius-8:  16px;
+    --radius-9:  48px;
   }
 }
 

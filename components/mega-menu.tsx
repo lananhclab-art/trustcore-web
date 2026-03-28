@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Wallet, Share2, Headset, CreditCard, Database, Building2, FileText, Briefcase } from "lucide-react";
+import { Wallet, Share2, Headset, CreditCard, Database, Building2, FileText, Briefcase, ShieldCheck } from "lucide-react";
 
 interface MegaMenuProps {
   isOpen: boolean;
@@ -12,19 +12,19 @@ const productsLeft = [
   {
     title: "TrustCore Wallet",
     description: "Manage secure multi-chain digital assets",
-    icon: <Wallet className="text-[#000000]" size={24} />,
-    href: "/products/wallet"
+    icon: <Wallet className="text-[#000000]" size={24} strokeWidth={2.5} />,
+    href: "https://trustcore.finance/"
   },
   {
     title: "TrustCore Exchange",
     description: "Unified liquidity and high-performance trading",
-    icon: <Database className="text-[#000000]" size={24} />,
+    icon: <Database className="text-[#000000]" size={24} strokeWidth={2.5} />,
     href: "/products/exchange"
   },
   {
     title: "Fintech Advisory",
     description: "Guide blockchain strategy and financial innovation",
-    icon: <Headset className="text-[#000000]" size={24} />,
+    icon: <Headset className="text-[#000000]" size={24} strokeWidth={2.5} />,
     href: "/products/advisory"
   }
 ];
@@ -33,13 +33,13 @@ const productsRight = [
   {
     title: "TrustCore Payment Gateway",
     description: "Enable global payments with digital assets",
-    icon: <CreditCard className="text-[#000000]" size={24} />,
+    icon: <CreditCard className="text-[#000000]" size={24} strokeWidth={2.5} />,
     href: "/products/gateway"
   },
   {
     title: "DeFi Platform",
     description: "Explore decentralized finance and yield opportunities",
-    icon: <Share2 className="text-[#000000]" size={24} />,
+    icon: <Share2 className="text-[#000000]" size={24} strokeWidth={2.5} />,
     href: "/products/defi"
   }
 ];
@@ -48,25 +48,31 @@ const companyItems = [
   {
     title: "About Us",
     description: "Meet the team behind TrustCore",
-    icon: <Building2 className="text-[#000000]" size={24} />,
+    icon: <Building2 className="text-[#000000]" size={24} strokeWidth={2.5} />,
     href: "/about"
   },
   {
     title: "Press Kit",
     description: "Download brand assets and media resources",
-    icon: <FileText className="text-[#000000]" size={24} />,
-    href: "/company/press"
+    icon: <FileText className="text-[#000000]" size={24} strokeWidth={2.5} />,
+    href: "/press"
+  },
+  {
+    title: "Security",
+    description: "Our commitment to institutional-grade security",
+    icon: <ShieldCheck className="text-[#000000]" size={24} strokeWidth={2.5} />,
+    href: "/company/security"
   },
   {
     title: "Careers",
     description: "Join us in building the future of finance",
-    icon: <Briefcase className="text-[#000000]" size={24} />,
+    icon: <Briefcase className="text-[#000000]" size={24} strokeWidth={2.5} />,
     href: "/careers"
   },
   {
     title: "Contact Us",
     description: "Get in touch with our global team",
-    icon: <Headset className="text-[#000000]" size={24} />,
+    icon: <Headset className="text-[#000000]" size={24} strokeWidth={2.5} />,
     href: "/contact"
   }
 ];
@@ -89,7 +95,7 @@ export function MegaMenu({ isOpen, type }: MegaMenuProps) {
           }}
         >
           <div className="flex flex-col gap-[24px] w-full items-start">
-            <span className="text-[14px] leading-[20px] font-medium text-[#0185EE] tracking-[-0.35px] px-4 font-sans">
+            <span className="text-[14px] leading-[20px] font-medium text-[#007AFF] tracking-[-0.35px] px-4 font-sans">
               {type === "products" ? "Products & Services" : "Company"}
             </span>
             
@@ -101,13 +107,15 @@ export function MegaMenu({ isOpen, type }: MegaMenuProps) {
                     <Link 
                       key={product.title} 
                       href={product.href}
+                      target={product.href.startsWith("http") ? "_blank" : undefined}
+                      rel={product.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="group flex items-start gap-5 p-2 -m-2 rounded-[16px] transition-all duration-200"
                     >
                       <div className="w-[48px] h-[48px] flex-shrink-0 flex items-center justify-center rounded-[12px] bg-[#F3F4F6] group-hover:bg-[#E8F1FF] border border-transparent transition-all duration-200">
                         {product.icon}
                       </div>
                       <div className="flex flex-col gap-1 py-1">
-                        <span className="text-[16px] leading-[20px] font-semibold text-[#14141E] group-hover:text-[#0185EE] transition-colors">
+                        <span className="text-[16px] leading-[20px] font-semibold text-[#14141E] group-hover:text-[#007AFF] transition-colors">
                           {product.title}
                         </span>
                         <span className="text-[14px] leading-snug text-[#626268] group-hover:text-[#374151] transition-colors">
@@ -130,7 +138,7 @@ export function MegaMenu({ isOpen, type }: MegaMenuProps) {
                         {product.icon}
                       </div>
                       <div className="flex flex-col gap-1 py-1">
-                        <span className="text-[16px] leading-[20px] font-semibold text-[#14141E] group-hover:text-[#0185EE] transition-colors">
+                        <span className="text-[16px] leading-[20px] font-semibold text-[#14141E] group-hover:text-[#007AFF] transition-colors">
                           {product.title}
                         </span>
                         <span className="text-[14px] leading-snug text-[#626268] group-hover:text-[#374151] transition-colors">
@@ -153,7 +161,7 @@ export function MegaMenu({ isOpen, type }: MegaMenuProps) {
                       {item.icon}
                     </div>
                     <div className="flex flex-col gap-1 py-1">
-                      <span className="text-[16px] leading-[20px] font-semibold text-[#14141E] group-hover:text-[#0185EE] transition-colors">
+                      <span className="text-[16px] leading-[20px] font-semibold text-[#14141E] group-hover:text-[#007AFF] transition-colors">
                         {item.title}
                       </span>
                       <span className="text-[14px] leading-snug text-[#626268] group-hover:text-[#374151] transition-colors">

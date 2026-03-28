@@ -15,7 +15,7 @@ export const CarouselCard: React.FC<CarouselCardProps> = ({
     <div 
       className={cn(
         "relative flex-shrink-0 w-[280px] md:w-[320px] lg:w-[400px] aspect-[3/4.2] group",
-        "rounded-[32px] md:rounded-[36px] overflow-hidden",
+        "rounded-3xl md:rounded-[36px] overflow-hidden",
         className
       )}
     >
@@ -24,7 +24,6 @@ export const CarouselCard: React.FC<CarouselCardProps> = ({
         src={imageSrc}
         alt="TrustCore Lifestyle and technology usage scene"
         fill
-        unoptimized
         className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         sizes="(max-width: 768px) 280px, (max-width: 1024px) 320px, 400px"
       />

@@ -47,13 +47,13 @@ export const typographyHeading: Record<"h1" | "h2" | "h3" | "h4" | "h5", Typogra
   },
   h2: {
     fontFamily:       fontFamily.primary,
-    fontSizeVar:      "--font-headings-h2-text-size",
-    fontSize:         "48px",
+    fontSizeVar:      "--font-headings-h1-text-size",
+    fontSize:         "64px",
     fontWeight:       fontWeight.bold,
-    lineHeightVar:    "--font-headings-h2-line-height",
-    lineHeight:       "52.8px",
-    letterSpacingVar: "--font-headings-h2-letter-spacing",
-    letterSpacing:    "-1.2px",
+    lineHeightVar:    "--font-headings-h1-line-height",
+    lineHeight:       "70.4px",
+    letterSpacingVar: "--font-headings-h1-letter-spacing",
+    letterSpacing:    "-1.6px",
   },
   h3: {
     fontFamily:       fontFamily.primary,
@@ -97,7 +97,7 @@ export const typographyBody: Record<BodyVariant, Record<WeightVariant, Typograph
   lg: {
     regular: {
       fontFamily:       fontFamily.primary,
-      fontSizeVar:      "--font-body-body-lg-text-size",
+      fontSizeVar:      "--Font-Body-body-lg-text-size",
       fontSize:         "20px",
       fontWeight:       fontWeight.regular,
       lineHeightVar:    "--font-body-body-lg-line-height",
@@ -107,7 +107,7 @@ export const typographyBody: Record<BodyVariant, Record<WeightVariant, Typograph
     },
     medium: {
       fontFamily:       fontFamily.primary,
-      fontSizeVar:      "--font-body-body-lg-text-size",
+      fontSizeVar:      "--Font-Body-body-lg-text-size",
       fontSize:         "20px",
       fontWeight:       fontWeight.medium,
       lineHeightVar:    "--font-body-body-lg-line-height",
@@ -117,7 +117,7 @@ export const typographyBody: Record<BodyVariant, Record<WeightVariant, Typograph
     },
     semibold: {
       fontFamily:       fontFamily.primary,
-      fontSizeVar:      "--font-body-body-lg-text-size",
+      fontSizeVar:      "--Font-Body-body-lg-text-size",
       fontSize:         "20px",
       fontWeight:       fontWeight.semibold,
       lineHeightVar:    "--font-body-body-lg-line-height",
@@ -129,7 +129,7 @@ export const typographyBody: Record<BodyVariant, Record<WeightVariant, Typograph
   md: {
     regular: {
       fontFamily:       fontFamily.primary,
-      fontSizeVar:      "--font-body-body-md-text-size",
+      fontSizeVar:      "--Font-Body-body-md-text-size",
       fontSize:         "18px",
       fontWeight:       fontWeight.regular,
       lineHeightVar:    "--font-body-body-md-line-height",
@@ -139,7 +139,7 @@ export const typographyBody: Record<BodyVariant, Record<WeightVariant, Typograph
     },
     medium: {
       fontFamily:       fontFamily.primary,
-      fontSizeVar:      "--font-body-body-md-text-size",
+      fontSizeVar:      "--Font-Body-body-md-text-size",
       fontSize:         "18px",
       fontWeight:       fontWeight.medium,
       lineHeightVar:    "--font-body-body-md-line-height",
@@ -149,7 +149,7 @@ export const typographyBody: Record<BodyVariant, Record<WeightVariant, Typograph
     },
     semibold: {
       fontFamily:       fontFamily.primary,
-      fontSizeVar:      "--font-body-body-md-text-size",
+      fontSizeVar:      "--Font-Body-body-md-text-size",
       fontSize:         "18px",
       fontWeight:       fontWeight.semibold,
       lineHeightVar:    "--font-body-body-md-line-height",
@@ -322,10 +322,10 @@ export const tailwindFontSize = {
     },
   ],
   "heading-h2": [
-    `var(--font-headings-h2-text-size, 48px)`,
+    `var(--font-headings-h1-text-size, 64px)`,
     {
-      lineHeight:    `var(--font-headings-h2-line-height, 52.8px)`,
-      letterSpacing: `var(--font-headings-h2-letter-spacing, -1.2px)`,
+      lineHeight:    `var(--font-headings-h1-line-height, 70.4px)`,
+      letterSpacing: `var(--font-headings-h1-letter-spacing, -1.6px)`,
       fontWeight:    "700",
     },
   ],
@@ -354,14 +354,14 @@ export const tailwindFontSize = {
     },
   ],
   "body-lg": [
-    `var(--font-body-body-lg-text-size, 20px)`,
+    `var(--Font-Body-body-lg-text-size, 20px)`,
     {
       lineHeight:    `var(--font-body-body-lg-line-height, 28px)`,
       letterSpacing: `var(--font-body-body-lg-letter-spacing, -0.5px)`,
     },
   ],
   "body-md": [
-    `var(--font-body-body-md-text-size, 18px)`,
+    `var(--Font-Body-body-md-text-size, 18px)`,
     {
       lineHeight:    `var(--font-body-body-md-line-height, 26px)`,
       letterSpacing: `var(--font-body-body-md-letter-spacing, -0.45px)`,

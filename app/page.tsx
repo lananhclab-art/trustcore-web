@@ -1,38 +1,43 @@
+"use client";
+
 import React from "react";
 import { Header } from "@/components/header";
-import Hero from "@/components/hero";
-import Features from "@/components/features";
-import OurVision from "@/components/our-vision";
-import StrategicStatement from "@/components/strategic-statement";
-import Carousel from "@/components/carousel";
-import { WhatWeBuild } from "@/components/what-we-build";
-import { Container } from "@/components/ui/container";
 import Footer from "@/components/footer";
+import { Hero } from "@/components/hero";
+import dynamic from "next/dynamic";
+
+const Features = dynamic(() => import("@/components/features"), { ssr: false });
+const WhatWeBuild = dynamic(() => import("@/components/what-we-build"), { ssr: false });
+const Carousel = dynamic(() => import("@/components/carousel"), { ssr: false });
+const OurVision = dynamic(() => import("@/components/our-vision"), { ssr: false });
+const StrategicStatement = dynamic(() => import("@/components/strategic-statement"), { ssr: false });
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main className="min-h-screen bg-white flex flex-col">
-        {/* Hero Section */}
-        <Hero videoSrc="/video/hero.webm" />
+    <main className="min-h-screen bg-white flex flex-col">
+      <Header onDark={true} />
 
-        {/* Future of Finance Section */}
+      <article className="flex-grow">
+        {/* Hero Section */}
+        <Hero 
+          videoSrc="/video/hero.webm"
+          posterSrc="/video/hero-poster.png"
+        />
+
+        {/* Feature Highlights with Globe */}
         <Features />
 
-        {/* Built on Trust (Carousel) Section */}
-        <Carousel />
-
-        {/* What We Build (Feature Grid) Section */}
+        {/* Product Grid */}
         <WhatWeBuild />
 
-        {/* Our Vision Section */}
+        {/* Visual Ticker */}
+        <Carousel />
+
+        {/* Company Vision & Values */}
         <OurVision />
+      </article>
 
-
-        {/* Footer */}
-        <Footer />
-      </main>
-    </>
+      <Footer />
+    </main>
   );
 }

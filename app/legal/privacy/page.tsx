@@ -2,6 +2,8 @@ import React from "react";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
+import { Text } from "@/components/ui/text";
 
 const sections = [
   {
@@ -165,33 +167,31 @@ We will respond to your inquiry within a reasonable timeframe, and no later than
   },
 ];
 
+import { SectionHeader } from "@/components/ui/section-header";
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col font-sans overflow-x-hidden">
       <Header onDark={false} />
 
-      <main className="flex-grow pt-[100px] lg:pt-[140px]">
-
+      <main className="flex-grow">
         {/* Page Header */}
-        <section className="py-[60px] lg:py-[80px] border-b border-[#E8ECF0]">
-          <Container size="wide">
-            <div className="flex flex-col gap-4">
-              <h1 className="text-[44px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-[-1.5px] text-[#14141E]">
-                Privacy Policy
-              </h1>
-              <p className="text-[16px] text-[#626268] mt-2">
-                Effective Date: January 1, 2026 &nbsp;·&nbsp; Last Updated: March 26, 2026
-              </p>
-            </div>
+        <Section spacing="hero" bg="white" className="border-b border-[#E8EDF2]">
+          <Container>
+            <SectionHeader
+              title="Privacy Policy"
+              subtitle="Effective Date: January 1, 2026 · Last Updated: March 26, 2026"
+              align="left"
+            />
 
             {/* Download link */}
-            <div className="mt-8">
+            <div className="mt-12">
               <a
                 href="/images/privacy/TRUSTCORE TECHNOLOGIES LLC..pdf"
                 download
-                className="inline-flex items-center gap-2 text-[15px] font-medium text-[#0185EE] hover:underline underline-offset-4 transition-all"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#F8FAFC] border border-[#E8EDF2] text-body-md font-bold text-[#007AFF] hover:bg-[#007AFF] hover:text-white hover:border-[#007AFF] transition-all group"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:scale-110 transition-transform">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                   <polyline points="7 10 12 15 17 10"/>
                   <line x1="12" y1="15" x2="12" y2="3"/>
@@ -200,21 +200,22 @@ export default function PrivacyPolicyPage() {
               </a>
             </div>
           </Container>
-        </section>
+        </Section>
 
         {/* Content */}
-        <section className="py-[80px] lg:py-[100px]">
-          <Container size="wide">
-            <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 lg:gap-20 items-start">
-
+        <Section spacing="lg" bg="white">
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-24 items-start">
               {/* Sticky Table of Contents */}
-              <nav className="hidden lg:flex flex-col gap-2 sticky top-[110px]">
-                <p className="text-[13px] font-bold text-[#626268] tracking-[1px] uppercase mb-2">Contents</p>
+              <nav className="hidden lg:flex flex-col gap-3 sticky top-[120px] p-8 bg-[#F8FAFC] rounded-3xl border border-[#E8EDF2]">
+                <p className="text-body-md font-bold text-[#94A3B8] tracking-[1.5px] uppercase mb-4 px-2">
+                  Table of Contents
+                </p>
                 {sections.map((s) => (
                   <a
                     key={s.id}
                     href={`#${s.id}`}
-                    className="text-[14px] text-[#626268] hover:text-[#0185EE] transition-colors py-1 leading-snug"
+                    className="text-body-md font-semibold text-[#626268] hover:text-[#007AFF] hover:translate-x-1 transition-all py-1.5 px-2 rounded-lg hover:bg-white"
                   >
                     {s.title}
                   </a>
@@ -222,37 +223,37 @@ export default function PrivacyPolicyPage() {
               </nav>
 
               {/* Policy Content */}
-              <div className="flex flex-col gap-12">
+              <div className="flex flex-col gap-16">
                 {sections.map((section: any) => (
-                  <div key={section.id} id={section.id} className="flex flex-col gap-4 scroll-mt-[120px]">
-                    <h2 className="text-[24px] font-bold text-[#14141E] leading-[32px] tracking-[-0.6px]">
+                  <div key={section.id} id={section.id} className="flex flex-col gap-6 scroll-mt-[140px]">
+                    <Text as="div" variant="heading-h3" weight="bold" color="primary" className="leading-tight tracking-tight">
                       {section.title}
-                    </h2>
-                    <div className="text-[17px] font-normal text-[#626268] leading-[28px] whitespace-pre-line">
+                    </Text>
+                    <div className="text-body-lg font-medium text-[#626268] leading-[30px] whitespace-pre-line">
                       {section.content.split("\n").map((para: string, i: number) => {
                         if (para.startsWith("**") && para.endsWith("**")) {
                           return (
-                            <p key={i} className="font-bold text-[#14141E] mt-4 mb-1">
+                            <p key={i} className="font-bold text-[#0F172A] mt-6 mb-2">
                               {para.replace(/\*\*/g, "")}
                             </p>
                           );
                         }
                         if (para.startsWith("• ")) {
                           return (
-                            <p key={i} className="flex gap-2 mt-1">
-                              <span className="text-[#626268] flex-shrink-0">•</span>
+                            <p key={i} className="flex gap-3 mt-2 pl-2">
+                              <span className="text-[#007AFF] font-bold flex-shrink-0">•</span>
                               <span>{para.slice(2)}</span>
                             </p>
                           );
                         }
-                        if (para.trim() === "") return <div key={i} className="h-2" />;
-                        // Handle inline bold (e.g., **Word:** desc)
+                        if (para.trim() === "") return <div key={i} className="h-4" />;
+                        
                         const parts = para.split(/(\*\*[^*]+\*\*)/g);
                         return (
-                          <p key={i} className="mt-1">
+                          <p key={i} className="mt-2 text-[#626268]">
                             {parts.map((part, j) =>
                               part.startsWith("**") && part.endsWith("**") ? (
-                                <strong key={j} className="font-bold text-[#14141E]">
+                                <strong key={j} className="font-bold text-[#0F172A]">
                                   {part.replace(/\*\*/g, "")}
                                 </strong>
                               ) : (
@@ -266,14 +267,14 @@ export default function PrivacyPolicyPage() {
 
                     {/* Table Rendering */}
                     {section.table && (
-                      <div className="mt-6 overflow-x-auto border border-[#E8ECF0] rounded-xl shadow-sm">
+                      <div className="mt-8 overflow-hidden border border-[#E8EDF2] rounded-3xl shadow-sm bg-white">
                         <table className="w-full border-collapse text-left text-[15px]">
                           <thead>
                             <tr className="bg-[#F8FAFC]">
                               {section.table.headers.map((header: string, i: number) => (
                                 <th
                                   key={i}
-                                  className="py-6 px-6 font-bold text-[#14141E] border-b border-[#E8ECF0] whitespace-nowrap"
+                                  className="text-body-md py-6 px-8 font-bold text-[#0F172A] border-b border-[#E8EDF2] whitespace-nowrap tracking-tight"
                                 >
                                   {header}
                                 </th>
@@ -284,12 +285,12 @@ export default function PrivacyPolicyPage() {
                             {section.table.rows.map((row: string[], i: number) => (
                               <tr
                                 key={i}
-                                className="hover:bg-gray-50/50 transition-colors"
+                                className="group hover:bg-[#F8FAFC]/50 transition-colors"
                               >
                                 {row.map((cell, j) => (
                                   <td
                                     key={j}
-                                    className={`py-8 px-6 text-[#626268] border-b border-[#E8ECF0] leading-[1.5] ${
+                                    className={`text-body-md py-6 px-8 text-[#626268] font-medium border-b border-[#E8EDF2] group-last:border-none leading-relaxed ${
                                       j === 1 || j === 2 ? "min-w-[200px]" : "min-w-[150px]"
                                     }`}
                                   >
@@ -304,19 +305,16 @@ export default function PrivacyPolicyPage() {
                     )}
 
                     {section.footer && (
-                      <p className="text-[15px] italic text-[#626268] mt-2">
-                        {section.footer}
-                      </p>
+              <p className="body-md font-semibold text-[#626268] mt-4 px-2 italic">
+                {section.footer}
+              </p>
                     )}
-
-                    <div className="border-b border-[#E8ECF0] mt-4" />
                   </div>
                 ))}
               </div>
             </div>
           </Container>
-        </section>
-
+        </Section>
       </main>
 
       <Footer hideCTA={true} />

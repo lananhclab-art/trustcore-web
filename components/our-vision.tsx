@@ -1,60 +1,55 @@
-import React from "react";
+import Image from "next/image";
 import { Container } from "./ui/container";
+import { Section } from "./ui/section";
+import { SectionHeader } from "./ui/section-header";
+import { Text } from "./ui/text";
 
-export default function VisionSection() {
+export const OurVision = () => {
   return (
-    <section className="py-5xl lg:py-6xl bg-white w-full">
-      <Container size="wide">
-        
-        {/* HEADER */}
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-[40px] lg:gap-12">
-          
-          {/* LEFT */}
-          <div className="max-w-[451px]">
-            <h1 className="text-[40px] leading-[48px] md:text-[56px] md:leading-[68px] font-bold tracking-[-0.5px] text-[#0F172A]">
-              Our <span className="text-[#007AFF]">Vision</span>
-            </h1>
+    <Section spacing="lg" bg="white">
+      <Container>
+        {/* HEADER - SPLIT SECTION */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-3xl lg:mb-6xl">
+          <SectionHeader
+            title={<>Our <span className="text-text-brand">Vision</span></>}
+            subtitle="A world where every individual and business has true financial autonomy."
+            align="left"
+            spacing="none"
+          />
 
-            <p className="mt-4 text-body-lg font-medium text-text-secondary">
-              A world where every individual and business has true financial autonomy.
-            </p>
+          <div className="w-full">
+            <Text variant="heading-h4" as="h2" color="primary">
+              TrustCore Technologies is building the infrastructure that{" "}
+              <span className="text-text-brand">
+                makes this future possible.
+              </span>
+            </Text>
           </div>
-
-          {/* RIGHT */}
-          <h4 className="max-w-[516px] text-[20px] leading-[28px] md:text-[24px] md:leading-[32px] font-bold tracking-[-0.6px] text-[#14141E]">
-            TrustCore Technologies is building the infrastructure that{" "}
-            <span className="text-[#007AFF]">
-              makes this future possible.
-            </span>
-          </h4>
         </div>
 
-        {/* VALUES */}
-        <div className="mt-[40px] lg:mt-[100px] grid grid-cols-1 md:grid-cols-3 gap-[40px] lg:gap-[64px]">
-          
+        {/* VALUES - FEATURE / GRID SECTION */}
+        <div className="mt-5xl lg:mt-6xl grid gap-lg md:gap-xl lg:grid-cols-3">
           <ValueCard
             icon="/images/our-vison/trust.svg"
             title="Trust"
             desc="Security and compliance come first in everything we develop."
           />
-
           <ValueCard
             icon="/images/our-vison/user-centric.svg"
             title="User-Centric"
             desc="Simple, seamless experiences built for real human needs and accessibility."
           />
-
           <ValueCard
             icon="/images/our-vison/innovation.svg"
             title="Innovation"
             desc="Advancing technology to shape the future of global finance."
           />
-
         </div>
       </Container>
-    </section>
+    </Section>
   )
 }
+export default OurVision;
 
 function ValueCard({
   icon,
@@ -66,26 +61,27 @@ function ValueCard({
   desc: string
 }) {
   return (
-    <div className="flex flex-col gap-5">
-      
+    <div className="flex flex-col gap-m">
       {/* ICON */}
-      <img
-        src={icon}
-        alt={title}
-        className="w-[48px] h-[48px] object-contain"
-      />
+      <div className="w-[48px] h-[48px] relative">
+        <Image
+          src={icon}
+          alt={title}
+          fill
+          className="object-contain"
+        />
+      </div>
 
       {/* TEXT */}
       <div>
-        <h4 className="text-[20px] leading-[28px] md:text-[24px] md:leading-[32px] font-bold tracking-[-0.6px] text-[#0F172A]">
+        <Text variant="heading-h5" as="h3" color="primary">
           {title}
-        </h4>
+        </Text>
 
-        <p className="mt-3 text-body-md font-normal text-text-secondary">
+        <Text variant="body-md" color="secondary" className="mt-sm">
           {desc}
-        </p>
+        </Text>
       </div>
-
     </div>
   )
 }

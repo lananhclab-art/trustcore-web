@@ -3,26 +3,28 @@
 import React from "react";
 import Image from "next/image";
 import { Container } from "./ui/container";
+import { Section } from "./ui/section";
 import { Button } from "./ui/button";
+import { Text } from "./ui/text";
 
 export const CareersHero: React.FC = () => {
   return (
-    <section className="bg-white pt-[140px] lg:pt-[180px] pb-5xl lg:pb-6xl overflow-hidden">
-      <Container size="wide" className="flex flex-col items-center text-center">
-        {/* Heading */}
-        <h1 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-[-0.02em] text-[#0F172A] max-w-[900px]">
-          Join our team <br className="hidden md:block" />
-          <span className="text-[#0185EE]">and reshape the future</span>
-        </h1>
+    <Section spacing="hero" bg="white" className="overflow-hidden">
+      <Container className="flex flex-col items-center text-center">
+        <div className="max-w-[1100px] space-y-6">
+          <Text as="h1" variant="heading-h1" weight="bold" color="primary" className="leading-[1.05] tracking-[-1.5px]">
+            Join our team <br className="hidden md:block" />
+            <span className="text-text-brand">and reshape the future</span>
+          </Text>
 
-        {/* Subheading */}
-        <p className="mt-[24px] md:mt-[32px] text-[18px] lg:text-[20px] font-medium text-[#626268] leading-relaxed max-w-[680px]">
-          Work on meaningful problems at the intersection of blockchain, security, and global financial systems.
-        </p>
+          <Text variant="body-lg" weight="medium" color="secondary" className="leading-[30px] whitespace-normal md:whitespace-nowrap">
+            Work on meaningful problems at the intersection of blockchain, security, and global financial systems.
+          </Text>
+        </div>
 
         {/* CTA */}
-        <div className="mt-xl">
-          <Button variant="primary" size="nav" className="px-lg lg:px-[32px] rounded-full bg-[#0185EE] hover:bg-[#0175DB]">
+        <div className="mt-8">
+          <Button variant="primary" size="nav" className="rounded-full bg-[#007AFF] hover:bg-[#0066EE]">
             Find All Open Jobs
           </Button>
         </div>
@@ -40,7 +42,7 @@ export const CareersHero: React.FC = () => {
           </div>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 

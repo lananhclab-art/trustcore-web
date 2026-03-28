@@ -126,8 +126,8 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
           "transition-opacity duration-1000 ease-in-out",
           videoReady ? "opacity-0" : "opacity-100",
         )}
-        sizes="100vw"
-        quality={85}
+        sizes="(max-width: 1240px) 100vw, 1280px"
+        quality={90}
       />
 
       {/* ── Layer 2: Video (identical position, fades IN) ── */}

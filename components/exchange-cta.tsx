@@ -6,22 +6,21 @@ import Link from "next/link";
 export default function ExchangeCTA() {
   return (
     <section 
-      className="relative bg-[#08080D] py-[100px] lg:py-[160px] overflow-hidden"
-      style={{ backgroundColor: '#08080D' }}
+      className="relative bg-[#08080D] py-6 md:py-[100px] lg:py-[160px] overflow-hidden"
     >
-      <Container size="wide">
-        <div className="relative z-10 flex flex-col items-center text-center gap-10 md:gap-14">
-          <h1 className="text-[40px] md:text-[60px] lg:text-[72px] font-bold leading-[1.1] tracking-tight text-white max-w-[950px]">
+      <Container>
+        <div className="text-center max-w-2xl mx-auto space-y-3 md:space-y-8">
+          {/* gateway-style heading (white variant for dark bg) */}
+          <h2 className="text-[40px] md:text-[56px] lg:text-[64px] font-bold leading-[1.1] tracking-[-1.5px] text-white">
             Access a Unified <br className="hidden md:block" />
             Trading Infrastructure
-          </h1>
+          </h2>
           
           <div className="flex justify-center">
             <Link href="/contact" passHref legacyBehavior>
               <Button 
                 variant="primary" 
                 size="nav"
-                className="transition-all duration-300"
               >
                 Get in Touch
               </Button>

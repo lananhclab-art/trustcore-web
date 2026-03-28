@@ -2,6 +2,9 @@
 
 import React from 'react';
 import { Container } from './ui/container';
+import { Section } from './ui/section';
+import { SectionHeader } from './ui/section-header';
+import { Text } from './ui/text';
 import { CarouselCard } from './carousel-card';
 
 const CARDS = [
@@ -14,24 +17,19 @@ const CARDS = [
 
 export const Carousel = () => {
   return (
-    <section className="w-full bg-white py-[48px] lg:py-[120px] overflow-hidden flex flex-col gap-[40px]">
-      <Container size="wide">
-        {/* Section Header */}
-        <div className="flex flex-col items-start justify-start text-left gap-[8px]">
-          <h2 className="text-[40px] leading-[44px] md:text-[52px] md:leading-[56px] lg:text-[64px] lg:leading-[68px] font-bold text-text-primary tracking-[-1px]">
-            Built <span className="text-text-brand">on Trust</span>
-          </h2>
-          <p className="text-body-lg font-medium text-text-secondary w-full">
-            At TrustCore, trust is not a promise. It is built at the core of secure technology.
-          </p>
-        </div>
+    <Section spacing="lg" bg="white" className="overflow-hidden flex flex-col gap-xxl">
+      <Container>
+        <SectionHeader
+          title={<>Built <span className="text-text-brand">on Trust</span></>}
+          subtitle="At TrustCore, trust is not a promise. It is built at the core of secure technology."
+          align="left"
+        />
       </Container>
 
       {/* Infinite Ticker Container */}
-      <div className="relative w-full overflow-hidden bg-white">
-        {/* Force-refresh structure: using w-max and a slightly wider gap (12) */}
+      <div className="relative w-full overflow-hidden">
         <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
-          <div className="flex gap-12 px-6 shrink-0">
+          <div className="flex gap-xl px-lg shrink-0">
             {CARDS.map((card, idx) => (
               <CarouselCard
                 key={`a-${card.id}-${idx}`}
@@ -39,7 +37,7 @@ export const Carousel = () => {
               />
             ))}
           </div>
-          <div className="flex gap-12 px-6 shrink-0" aria-hidden="true">
+          <div className="flex gap-xl px-lg shrink-0" aria-hidden="true">
             {CARDS.map((card, idx) => (
               <CarouselCard
                 key={`b-${card.id}-${idx}`}
@@ -50,15 +48,16 @@ export const Carousel = () => {
         </div>
       </div>
 
-      <Container size="wide">
+      <Container>
         {/* Footer Text Block */}
-        <div className="mt-20 max-w-[940px] mx-auto text-center">
-          <p className="text-body-md font-normal text-text-secondary">
-            We build financial infrastructure on a core foundation of security, transparency, and user ownership empowering individuals and businesses to participate confidently in the decentralized economy.
-          </p>
+        <div className="mt-xxl w-full text-center">
+          <Text variant="heading-h5" color="secondary">
+            We build financial infrastructure on a core foundation of <br className="hidden md:block"/>
+            <span className="text-text-brand">security</span>, <span className="text-text-brand">transparency</span>, and <span className="text-text-brand">user ownership.</span>
+          </Text>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 };
 
