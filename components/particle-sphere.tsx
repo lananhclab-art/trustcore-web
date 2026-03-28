@@ -75,10 +75,10 @@ const ParticleSphere = () => {
 
     globeGeometry.setAttribute('position', new THREE.BufferAttribute(globeCurrentPos, 3));
     const globeMaterial = new THREE.PointsMaterial({
-      size: 0.012,
+      size: 0.015,
       color: new THREE.Color('#0185EE'),
       transparent: true,
-      opacity: 0.3,
+      opacity: 0.6,
       sizeAttenuation: true,
     });
 
@@ -142,7 +142,7 @@ const ParticleSphere = () => {
         logoGeometry.setAttribute('position', new THREE.BufferAttribute(currentPos, 3));
         logoMaterial = new THREE.PointsMaterial({
           size: 0.02,
-          color: new THREE.Color('#0185EE'),
+          color: new THREE.Color('#F7931A'), // BTC Orange
           transparent: true,
           opacity: 1.0,
           depthWrite: false,
