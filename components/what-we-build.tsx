@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "./ui/container";
 import { Section } from "./ui/section";
 import { SectionHeader } from "./ui/section-header";
@@ -201,9 +202,11 @@ export const WhatWeBuild = () => {
             </div>
 
             <div className="flex items-start">
-              <Button variant="primary" size="md">
-                Book a Call
-              </Button>
+              <Link href="/contact">
+                <Button variant="primary" size="md">
+                  Book a Call
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
