@@ -12,8 +12,12 @@ import { ChevronDown, Menu } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Container } from "./ui/container";
-import { MobileNav } from "./mobile-nav";
 import { MegaMenu } from "./mega-menu";
+import dynamic from "next/dynamic";
+
+const MobileNav = dynamic(() => import("./mobile-nav").then(mod => mod.MobileNav), {
+  ssr: false
+});
 
 export interface HeaderProps {
   onDark?: boolean;

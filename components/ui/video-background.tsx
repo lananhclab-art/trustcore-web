@@ -49,6 +49,15 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
+  // ── Delayed initialization ──
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // Allow video intersection logic to start only after initial render is stable
+      setShouldLoadVideo(true);
+    }, 1500); 
+    return () => clearTimeout(timer);
+  }, []);
+
   // ── Check prefers-reduced-motion ──────────────────────────────
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
