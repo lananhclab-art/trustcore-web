@@ -120,7 +120,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
       ref={containerRef}
       className={cn(
         // Fixed aspect ratio container — prevents ALL layout shift
-        "relative w-full overflow-hidden aspect-[16/9]",
+        "relative w-full overflow-hidden aspect-[16/9] bg-[#000]",
         className,
       )}
     >

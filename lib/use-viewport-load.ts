@@ -9,7 +9,7 @@ import { useState, useEffect, useCallback } from "react";
  */
 export function useViewportLoad(
   rootMargin = "200px",
-  delay = 2000
+  delay = 1000
 ): [(node: HTMLDivElement | null) => void, boolean] {
   const [isVisible, setIsVisible] = useState(false);
   const [hasEngaged, setHasEngaged] = useState(false);
