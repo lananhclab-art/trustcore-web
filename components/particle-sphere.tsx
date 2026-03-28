@@ -64,11 +64,11 @@ const ParticleSphere = () => {
       const y = globeRadius * Math.sin(theta) * Math.sin(phi);
       const z = globeRadius * Math.cos(phi);
 
-      globeInitialPos[i * 3]     = x;
+      globeInitialPos[i * 3] = x;
       globeInitialPos[i * 3 + 1] = y;
       globeInitialPos[i * 3 + 2] = z;
 
-      globeCurrentPos[i * 3]     = x;
+      globeCurrentPos[i * 3] = x;
       globeCurrentPos[i * 3 + 1] = y;
       globeCurrentPos[i * 3 + 2] = z;
     }
@@ -131,7 +131,7 @@ const ParticleSphere = () => {
           const { x, y } = pts[i];
           const z = (Math.random() - 0.5) * 0.05;
 
-          logoInitialPos[i * 3]     = x;
+          logoInitialPos[i * 3] = x;
           logoInitialPos[i * 3 + 1] = y;
           logoInitialPos[i * 3 + 2] = z;
           currentPos[i * 3] = x;
@@ -195,10 +195,10 @@ const ParticleSphere = () => {
 
         // Interaction
         raycaster.setFromCamera(mouse.current, camera);
-        const hitSphere = new THREE.Sphere(new THREE.Vector3(0,0,0), globeRadius);
+        const hitSphere = new THREE.Sphere(new THREE.Vector3(0, 0, 0), globeRadius);
         const intersectPoint = new THREE.Vector3();
         raycaster.ray.intersectSphere(hitSphere, intersectPoint);
-        
+
         const localHit = intersectPoint.clone();
         allGroup.worldToLocal(localHit);
 
@@ -208,13 +208,13 @@ const ParticleSphere = () => {
           const baseX = globeInitialPos[ix], baseY = globeInitialPos[iy], baseZ = globeInitialPos[iz];
           let targetX = baseX, targetY = baseY, targetZ = baseZ;
           const dx = baseX - localHit.x, dy = baseY - localHit.y, dz = baseZ - localHit.z;
-          const dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+          const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
           if (dist < 0.4) {
-             const push = (0.4 - dist) * 1.5;
-             targetX += (dx/dist) * push;
-             targetY += (dy/dist) * push;
-             targetZ += (dz/dist) * push;
+            const push = (0.4 - dist) * 1.5;
+            targetX += (dx / dist) * push;
+            targetY += (dy / dist) * push;
+            targetZ += (dz / dist) * push;
           }
 
           (gAttr.array as Float32Array)[ix] += (targetX - (gAttr.array as Float32Array)[ix]) * 0.1;

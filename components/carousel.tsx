@@ -11,27 +11,27 @@ const CARDS = [
   { 
     id: 1, 
     imageSrc: "/images/carousel/1.avif",
-    quote: "TrustCore gave us full visibility over our digital assets. The self-custody model means we never have to trust a third party with client funds again."
+    quote: "Partnering with TrustCore was the best decision for our digital transformation. Their team doesn't just provide technology; they provide a foundation of trust and reliability that is rare in the blockchain space."
   },
   { 
     id: 2, 
     imageSrc: "/images/carousel/2.avif",
-    quote: "We integrated TrustCore's payment gateway in under a week. Cross-border settlements that used to take days now clear in seconds."
+    quote: "What sets TrustCore apart is their ability to make complex technology feel simple. They delivered a sophisticated blockchain solution that our team could actually use and scale from day one."
   },
   { 
     id: 3, 
     imageSrc: "/images/carousel/3.avif",
-    quote: "The infrastructure is enterprise-grade. We stress-tested it at 50k TPS and it didn't flinch. That kind of reliability is rare in this space."
+    quote: "The level of professionalism at TrustCore is world-class. They understood our business goals immediately and executed a secure, high-performance infrastructure that exceeded our expectations."
   },
   { 
     id: 4, 
     imageSrc: "/images/carousel/4.avif",
-    quote: "Transparent, auditable, fully on-chain. TrustCore's DeFi platform is what institutional adoption actually looks like."
+    quote: "Security is our top priority, and TrustCore delivered exactly what they promised. Their deep expertise in self-custody and non-custodial design gave us the confidence to launch our platform to a global audience."
   },
   { 
     id: 5, 
     imageSrc: "/images/carousel/5.avif",
-    quote: "Their advisory team didn't just give us a roadmap — they helped us navigate compliance across three jurisdictions. Invaluable partnership."
+    quote: "TrustCore is more than a vendor; they are a strategic partner. Their forward-thinking approach to fintech and blockchain logic has positioned us perfectly for the future of finance."
   },
 ];
 
