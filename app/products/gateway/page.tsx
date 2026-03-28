@@ -7,7 +7,7 @@ import Footer from "@/components/footer";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { HandCoins, CircleDollarSign, RefreshCw, Send, Building2, CreditCard, Smartphone } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/cn";
 import { Section } from "@/components/ui/section";
@@ -39,14 +39,28 @@ const securitySlides = [
 export default function GatewayPage() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [progress, setProgress] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [isSliderInView, setIsSliderInView] = useState(false);
+
+  // Only run the timer when the slider section is visible
+  useEffect(() => {
+    const el = sliderRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsSliderInView(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
+    if (!isSliderInView) return;
     const timer = setInterval(() => {
       setProgress((prev) => prev + 0.6);
     }, 40);
-
     return () => clearInterval(timer);
-  }, []);
+  }, [isSliderInView]);
 
   useEffect(() => {
     if (progress >= 100) {
@@ -215,7 +229,7 @@ export default function GatewayPage() {
             />
 
             {/* Trust & Security Slider Container */}
-            <div className="mt-12 lg:mt-20 w-full">
+            <div className="mt-12 lg:mt-20 w-full" ref={sliderRef}>
               {/* Desktop Carousel View */}
               <div className="hidden md:block relative w-full h-[583px] rounded-[24px] overflow-hidden bg-black">
                 <AnimatePresence initial={false}>

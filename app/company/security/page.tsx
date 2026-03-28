@@ -7,15 +7,18 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Text } from "@/components/ui/text";
-import { SecuritySlider } from "@/components/security-slider";
 import Image from "next/image";
-import { InfrastructureSection } from "@/components/infrastructure-section";
-import { PrivacySection } from "@/components/privacy-section";
-import { ServicesSection } from "@/components/services-section";
-import { SecureDevelopmentSection } from "@/components/secure-development-section";
-import { SecurityRiskSection } from "@/components/security-risk-section";
+import dynamic from "next/dynamic";
 
 import { CheckCircle2 } from "lucide-react";
+
+// Heavy components — loaded only when needed
+const SecuritySlider = dynamic(() => import("@/components/security-slider"), { ssr: false });
+const InfrastructureSection = dynamic(() => import("@/components/infrastructure-section"), { ssr: false });
+const PrivacySection = dynamic(() => import("@/components/privacy-section"), { ssr: false });
+const ServicesSection = dynamic(() => import("@/components/services-section"), { ssr: false });
+const SecureDevelopmentSection = dynamic(() => import("@/components/secure-development-section"), { ssr: false });
+const SecurityRiskSection = dynamic(() => import("@/components/security-risk-section"), { ssr: false });
 
 export default function SecurityPage() {
   return (

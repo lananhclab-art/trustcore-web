@@ -8,11 +8,31 @@ import { Text } from './ui/text';
 import { CarouselCard } from './carousel-card';
 
 const CARDS = [
-  { id: 1, imageSrc: "/images/carousel/1.avif" },
-  { id: 2, imageSrc: "/images/carousel/2.avif" },
-  { id: 3, imageSrc: "/images/carousel/3.avif" },
-  { id: 4, imageSrc: "/images/carousel/4.avif" },
-  { id: 5, imageSrc: "/images/carousel/5.avif" },
+  { 
+    id: 1, 
+    imageSrc: "/images/carousel/1.avif",
+    quote: "TrustCore gave us full visibility over our digital assets. The self-custody model means we never have to trust a third party with client funds again."
+  },
+  { 
+    id: 2, 
+    imageSrc: "/images/carousel/2.avif",
+    quote: "We integrated TrustCore's payment gateway in under a week. Cross-border settlements that used to take days now clear in seconds."
+  },
+  { 
+    id: 3, 
+    imageSrc: "/images/carousel/3.avif",
+    quote: "The infrastructure is enterprise-grade. We stress-tested it at 50k TPS and it didn't flinch. That kind of reliability is rare in this space."
+  },
+  { 
+    id: 4, 
+    imageSrc: "/images/carousel/4.avif",
+    quote: "Transparent, auditable, fully on-chain. TrustCore's DeFi platform is what institutional adoption actually looks like."
+  },
+  { 
+    id: 5, 
+    imageSrc: "/images/carousel/5.avif",
+    quote: "Their advisory team didn't just give us a roadmap — they helped us navigate compliance across three jurisdictions. Invaluable partnership."
+  },
 ];
 
 export const Carousel = () => {
@@ -26,14 +46,15 @@ export const Carousel = () => {
         />
       </Container>
 
-      {/* Infinite Ticker Container */}
+      {/* Infinite Ticker Container — continuous, no hover pause */}
       <div className="relative w-full overflow-hidden">
-        <div className="flex w-max animate-scroll hover:[animation-play-state:paused]">
+        <div className="flex w-max animate-scroll">
           <div className="flex gap-xl px-lg shrink-0">
             {CARDS.map((card, idx) => (
               <CarouselCard
                 key={`a-${card.id}-${idx}`}
                 imageSrc={card.imageSrc}
+                quote={card.quote}
               />
             ))}
           </div>
@@ -42,6 +63,7 @@ export const Carousel = () => {
               <CarouselCard
                 key={`b-${card.id}-${idx}`}
                 imageSrc={card.imageSrc}
+                quote={card.quote}
               />
             ))}
           </div>
@@ -49,7 +71,6 @@ export const Carousel = () => {
       </div>
 
       <Container>
-        {/* Footer Text Block */}
         <div className="mt-xxl w-full text-center">
           <Text variant="heading-h5" color="secondary">
             We build financial infrastructure on a core foundation of <br className="hidden md:block"/>

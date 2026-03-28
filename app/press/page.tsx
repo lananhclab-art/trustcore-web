@@ -81,12 +81,10 @@ export default function PressKitPage() {
                   align="left"
                 />
                 <div className="flex flex-wrap gap-4">
-                  <Button variant="primary" size="lg" className="rounded-2xl h-[60px] px-8">
-                    <Download className="mr-2" size={20} />
+                  <Button variant="primary" size="nav" leftIcon={<Download size={18} />}>
                     Download Brand Kit
                   </Button>
-                  <Button variant="secondary" size="lg" className="rounded-2xl h-[60px] px-8">
-                    <Mail className="mr-2" size={20} />
+                  <Button variant="secondary" size="nav" leftIcon={<Mail size={18} />}>
                     Contact Press
                   </Button>
                 </div>
@@ -135,12 +133,7 @@ export default function PressKitPage() {
                     <Text as="div" variant="body-lg" weight="bold" color="primary" className="mb-1">{asset.name}</Text>
                     <Text variant="body-md" color="secondary">{asset.desc}</Text>
                   </div>
-                  <Button 
-                    variant="secondary" 
-                    size="sm" 
-                    className="w-fit gap-2 h-10 px-4 rounded-xl text-body-md"
-                  >
-                    <Download size={16} />
+                  <Button variant="secondary" size="nav" leftIcon={<Download size={16} />}>
                     Download Asset
                   </Button>
                 </div>
@@ -186,7 +179,7 @@ export default function PressKitPage() {
                         {section.title}
                       </Text>
                     </div>
-                    <div className="text-body-lg font-medium text-[#626268] leading-[30px] whitespace-pre-line pl-0 md:pl-16">
+                    <div className="text-body-sm font-medium text-[#626268] leading-[24px] whitespace-pre-line pl-0 md:pl-16">
                       {section.content.split("\n").map((para, i) => (
                         <p key={i} className="mt-4">{para.trim()}</p>
                       ))}
@@ -197,33 +190,22 @@ export default function PressKitPage() {
                 {/* Contact Box */}
                 <div className="bg-[#0F172A] rounded-[40px] p-8 md:p-12 text-white flex flex-col md:flex-row justify-between items-center gap-8 mt-12">
                    <div className="flex flex-col gap-4 text-center md:text-left">
-                      <Text as="div" variant="heading-h2" weight="bold" color="inverse" className="tracking-tight">Need specific assets?</Text>
-                      <Text variant="body-lg" weight="medium" color="inverse" className="opacity-70 max-w-md">
+                      <Text as="div" variant="heading-h5" weight="bold" color="inverse" className="tracking-tight">Need specific assets?</Text>
+                      <Text variant="body-sm" weight="medium" color="inverse" className="opacity-70 max-w-md">
                         Contact our branding team for high-resolution formats and special usage permissions.
                       </Text>
                    </div>
                    <div className="flex flex-col gap-3 w-full md:w-auto">
-                      <Button 
-                        variant="primary" 
-                        size="md" 
-                        className="h-[56px] px-8 rounded-2xl gap-3 w-full"
-                        asChild
-                      >
-                        <a href="mailto:press@trustcore.finance">
-                          <Mail size={18} />
+                      <a href="mailto:press@trustcore.finance">
+                        <Button variant="primary" size="nav" leftIcon={<Mail size={18} />} className="w-full">
                           press@trustcore.finance
-                        </a>
-                      </Button>
-                      <Button 
-                        variant="secondary-white" 
-                        size="md" 
-                        className="h-[56px] px-8 rounded-2xl gap-3 w-full bg-white/5 border-white/10 text-white hover:bg-white/10"
-                        asChild
-                      >
-                        <a href="mailto:partnerships@trustcore.finance">
+                        </Button>
+                      </a>
+                      <a href="mailto:partnerships@trustcore.finance">
+                        <Button variant="on-dark" size="nav" className="w-full border border-white/20">
                           partnerships@trustcore.finance
-                        </a>
-                      </Button>
+                        </Button>
+                      </a>
                    </div>
                 </div>
               </div>

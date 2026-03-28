@@ -50,7 +50,7 @@ const ParticleSphere = () => {
     scene.add(allGroup);
 
     // --- 1. GLOBE PARTICLES ---
-    const globeCount = 12000;
+    const globeCount = 6000;
     const globeRadius = 1.8;
     const globeGeometry = new THREE.BufferGeometry();
     const globeInitialPos = new Float32Array(globeCount * 3);
@@ -110,8 +110,8 @@ const ParticleSphere = () => {
         const pts: { x: number; y: number }[] = [];
 
         // EXTREMELY DENSE Sampling (0.8 step)
-        for (let y = 0; y < size; y += 0.8) {
-          for (let x = 0; x < size; x += 0.8) {
+        for (let y = 0; y < size; y += 1.5) {
+          for (let x = 0; x < size; x += 1.5) {
             const alpha = data[(Math.floor(y) * size + Math.floor(x)) * 4 + 3];
             if (alpha > 150) {
               pts.push({

@@ -39,7 +39,7 @@ export default function FintechAdvisoryPage() {
               <Text variant="heading-h1" as="h1" color="primary">
                 Strategic Advisory For <br className="hidden md:block" />
                 Digital Finance And <br className="hidden md:block" />
-                <span className="text-text-brand">Blockchain Innovation</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#007AFF] to-[#00C2FF]">Blockchain Innovation</span>
               </Text>
               <Text variant="body-lg" weight="medium" color="secondary" className="max-w-2xl mx-auto">
                 We help businesses, institutions, and builders navigate digital assets,<br className="hidden md:block" />
@@ -49,11 +49,11 @@ export default function FintechAdvisoryPage() {
 
             <div className="mt-xl flex items-center justify-center gap-m">
               <Link href="/contact">
-                <Button variant="primary" size="nav" className="font-bold">
+                <Button variant="primary" size="nav">
                   Request Consultation
                 </Button>
               </Link>
-              <Button variant="secondary" size="nav" className="font-bold">
+              <Button variant="secondary" size="nav">
                 Explore Services
               </Button>
             </div>
