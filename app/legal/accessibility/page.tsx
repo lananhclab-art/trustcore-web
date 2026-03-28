@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "@/components/header";
 import Footer from "@/components/footer";
 import { Container } from "@/components/ui/container";
+import { Section } from "@/components/ui/section";
 import { Text } from "@/components/ui/text";
 
 const sections = [
@@ -122,35 +123,35 @@ export default function AccessibilityPage() {
     <div className="min-h-screen bg-white flex flex-col font-sans overflow-x-hidden">
       <Header onDark={false} />
 
-      <main className="flex-grow pt-[100px] lg:pt-[140px]">
+      <main className="flex-grow">
         {/* Page Header */}
-        <section className="py-[60px] lg:py-[80px] border-b border-[#E8ECF0]">
+        <Section spacing="hero" bg="white" className="border-b border-[#E8EDF2]">
           <Container >
-            <div className="flex flex-col gap-4">
-              <Text as="div" variant="heading-h1" weight="bold" color="primary" className="leading-[1.1] tracking-[-1.5px]">
+            <div className="flex flex-col gap-4 text-left">
+              <Text variant="heading-h5" weight="bold" color="primary">
                 Accessibility Statement
               </Text>
-              <Text variant="body-md" color="secondary" className="mt-2">
-                Version 1.0 (Published: 26 March 2026) &nbsp;·&nbsp; Last Updated: 26 March 2026
+              <Text variant="body-sm" weight="medium" color="secondary">
+                Version 1.0 (Published: 26 March 2026) · Last Updated: 26 March 2026
               </Text>
             </div>
           </Container>
-        </section>
+        </Section>
 
         {/* Content */}
-        <section className="py-[80px] lg:py-[100px]">
+        <Section spacing="lg" bg="white">
           <Container >
-            <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-12 lg:gap-20 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-24 items-start">
               {/* Sticky Table of Contents */}
-              <nav className="hidden lg:flex flex-col gap-2 sticky top-[110px]">
-                <p className="text-body-md font-bold text-[#626268] tracking-[1px] uppercase mb-2">
-                  Contents
+              <nav className="hidden lg:flex flex-col gap-3 sticky top-[120px] p-8 bg-[#F8FAFC] rounded-3xl border border-[#E8EDF2]">
+                <p className="text-body-sm font-bold text-[#94A3B8] tracking-[1.5px] uppercase mb-4 px-2">
+                  Table of Contents
                 </p>
                 {sections.map((s) => (
                   <a
                     key={s.id}
                     href={`#${s.id}`}
-                    className="text-body-md text-[#626268] hover:text-[#0185EE] transition-colors py-1 leading-snug"
+                    className="text-body-sm font-semibold text-[#626268] hover:text-[#007AFF] hover:translate-x-1 transition-all py-1.5 px-2 rounded-lg hover:bg-white"
                   >
                     {s.title}
                   </a>
@@ -158,33 +159,35 @@ export default function AccessibilityPage() {
               </nav>
 
               {/* Policy Content */}
-              <div className="flex flex-col gap-12">
+              <div className="flex flex-col gap-16">
                 {sections.map((section: any) => (
                   <div
                     key={section.id}
                     id={section.id}
-                    className="flex flex-col gap-4 scroll-mt-[120px]"
+                    className="flex flex-col gap-3 scroll-mt-[140px]"
                   >
-                    <Text as="div" variant="heading-h3" weight="bold" color="primary" className="leading-[32px] tracking-[-0.6px]">
+                    <Text as="div" variant="heading-h5" weight="bold" color="primary" className="leading-tight tracking-tight">
                       {section.title}
                     </Text>
-                    <div className="text-body-lg font-normal text-[#626268] leading-[28px] whitespace-pre-line">
+                    <div className="text-body-sm font-medium text-[#626268] leading-[24px] whitespace-pre-line">
                       {section.content.split("\n").map((para: string, i: number) => {
                         if (para.startsWith("**") && para.endsWith("**")) {
+                          const boldContent = para.replace(/\*\*/g, "");
+                          // If it's single bold item like in section 9
                           return (
-                            <p key={i} className="font-bold text-[#14141E] mt-4 mb-1">
-                              {para.replace(/\*\*/g, "")}
+                            <p key={i} className="font-bold text-[#0F172A] mt-6 mb-1">
+                              {boldContent}
                             </p>
                           );
                         }
                         if (para.startsWith("• ")) {
                           return (
-                            <p key={i} className="flex gap-2 mt-1">
-                              <span className="text-[#626268] flex-shrink-0">•</span>
+                            <p key={i} className="flex gap-3 mt-2 pl-2">
+                              <span className="text-[#007AFF] font-bold flex-shrink-0">•</span>
                               <span>
                                 {para.slice(2).split(/(\*\*[^*]+\*\*)/g).map((part, j) =>
                                   part.startsWith("**") && part.endsWith("**") ? (
-                                    <strong key={j} className="font-bold text-[#14141E]">
+                                    <strong key={j} className="font-bold text-[#0F172A]">
                                       {part.replace(/\*\*/g, "")}
                                     </strong>
                                   ) : (
@@ -195,14 +198,14 @@ export default function AccessibilityPage() {
                             </p>
                           );
                         }
-                        if (para.trim() === "") return <div key={i} className="h-2" />;
-                        // Handle inline bold
+                        if (para.trim() === "") return <div key={i} className="h-4" />;
+                        
                         const parts = para.split(/(\*\*[^*]+\*\*)/g);
                         return (
-                          <p key={i} className="mt-1">
+                          <p key={i} className="mt-2 text-[#626268]">
                             {parts.map((part, j) =>
                               part.startsWith("**") && part.endsWith("**") ? (
-                                <strong key={j} className="font-bold text-[#14141E]">
+                                <strong key={j} className="font-bold text-[#0F172A]">
                                   {part.replace(/\*\*/g, "")}
                                 </strong>
                               ) : (
@@ -213,13 +216,12 @@ export default function AccessibilityPage() {
                         );
                       })}
                     </div>
-                    <div className="border-b border-[#E8ECF0] mt-4" />
                   </div>
                 ))}
               </div>
             </div>
           </Container>
-        </section>
+        </Section>
       </main>
 
       <Footer hideCTA={true} />

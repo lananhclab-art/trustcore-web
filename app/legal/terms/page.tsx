@@ -235,11 +235,14 @@ export default function TermsOfUsePage() {
         {/* Page Header */}
         <Section spacing="hero" bg="white" className="border-b border-[#E8EDF2]">
           <Container >
-            <SectionHeader
-              title="Terms of Use"
-              subtitle="Effective Date: March 25, 2026 · Last Updated: March 26, 2026"
-              align="left"
-            />
+            <div className="flex flex-col gap-4 text-left">
+              <Text variant="heading-h5" weight="bold" color="primary">
+                Terms of Use
+              </Text>
+              <Text variant="body-sm" weight="medium" color="secondary">
+                Effective Date: March 25, 2026 · Last Updated: March 26, 2026
+              </Text>
+            </div>
           </Container>
         </Section>
 
@@ -249,14 +252,14 @@ export default function TermsOfUsePage() {
             <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-24 items-start">
               {/* Sticky Table of Contents */}
               <nav className="hidden lg:flex flex-col gap-3 sticky top-[120px] p-8 bg-[#F8FAFC] rounded-3xl border border-[#E8EDF2]">
-                <p className="text-[12px] font-bold text-[#94A3B8] tracking-[1.5px] uppercase mb-4 px-2">
+                <p className="text-body-sm font-bold text-[#94A3B8] tracking-[1.5px] uppercase mb-4 px-2">
                   Table of Contents
                 </p>
                 {sections.map((s) => (
                   <a
                     key={s.id}
                     href={`#${s.id}`}
-                    className="text-[14px] font-semibold text-[#626268] hover:text-[#007AFF] hover:translate-x-1 transition-all py-1.5 px-2 rounded-lg hover:bg-white"
+                    className="text-body-sm font-semibold text-[#626268] hover:text-[#007AFF] hover:translate-x-1 transition-all py-1.5 px-2 rounded-lg hover:bg-white"
                   >
                     {s.title}
                   </a>
@@ -269,12 +272,12 @@ export default function TermsOfUsePage() {
                   <div
                     key={section.id}
                     id={section.id}
-                    className="flex flex-col gap-6 scroll-mt-[140px]"
+                    className="flex flex-col gap-3 scroll-mt-[140px]"
                   >
-                    <Text as="div" variant="heading-h3" weight="bold" color="primary" className="leading-tight tracking-tight">
+                    <Text as="div" variant="heading-h5" weight="bold" color="primary" className="leading-tight tracking-tight">
                       {section.title}
                     </Text>
-                    <div className="text-body-lg font-medium text-[#626268] leading-[30px] whitespace-pre-line">
+                    <div className="text-body-sm font-medium text-[#626268] leading-[24px] whitespace-pre-line">
                       {section.content.split("\n").map((para: string, i: number) => {
                         if (para.startsWith("**") && para.endsWith("**")) {
                           return (
