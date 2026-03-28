@@ -142,7 +142,7 @@ const ParticleSphere = () => {
         logoGeometry.setAttribute('position', new THREE.BufferAttribute(currentPos, 3));
         logoMaterial = new THREE.PointsMaterial({
           size: 0.02,
-          color: new THREE.Color('#F7931A'), // BTC Orange
+          color: new THREE.Color('#0185EE'),
           transparent: true,
           opacity: 1.0,
           depthWrite: false,
